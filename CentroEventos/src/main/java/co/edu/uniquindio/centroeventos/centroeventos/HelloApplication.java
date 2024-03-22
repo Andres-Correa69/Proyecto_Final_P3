@@ -1,4 +1,4 @@
-package co.ignore.centroeventos;
+package co.edu.uniquindio.centroeventos.centroeventos;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package co.ignore.centroeventos;
+package co.edu.uniquindio.centroeventos.centroeventos;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
