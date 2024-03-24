@@ -10,6 +10,7 @@ public class CentroEvenUtils {
         empleado.setId("12345");
         empleado.setNombre("juan");
         empleado.setCorreo("awdawd@gmail.com");
+        empleado.setListaEventoAsigAsociados("12,13,14,15");
         centroEventos.getListaEmpleados().add(empleado);
 
         return centroEventos;

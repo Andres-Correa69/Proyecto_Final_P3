@@ -27,6 +27,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Text strokeType="INSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="257.3367462158203">
@@ -47,6 +48,12 @@
                            </font>
                         </Text>
                         <TextField fx:id="txtCorreo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID eventos asignados:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtListaEventosAsig" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <Button fx:id="btnNuevo" layoutX="174.0" layoutY="189.0" mnemonicParsing="false" onAction="#nuevoEmpleadoAction" prefHeight="26.0" prefWidth="103.0" text="Nuevo" />
@@ -62,9 +69,10 @@
                <children>
                   <TableView fx:id="tableEmpleados" layoutX="64.0" layoutY="14.0" prefHeight="200.0" prefWidth="661.0">
                     <columns>
-                      <TableColumn fx:id="tcId" prefWidth="165.59994506835938" text="ID" />
-                      <TableColumn fx:id="tcNombre" prefWidth="199.9999542236328" text="Nombre" />
-                        <TableColumn fx:id="tcCorreo" minWidth="8.0" prefWidth="296.0" text="Correo Electronico" />
+                      <TableColumn fx:id="tcId" prefWidth="103.99996948242188" text="ID" />
+                      <TableColumn fx:id="tcNombre" prefWidth="138.3999786376953" text="Nombre" />
+                        <TableColumn fx:id="tcCorreo" minWidth="8.0" prefWidth="205.5999755859375" text="Correo Electronico" />
+                        <TableColumn fx:id="tcListaEventosAsig" minWidth="8.0" prefWidth="212.80001220703127" text="Eventos Asignados" />
                     </columns>
                   </TableView>
                   <Button fx:id="btnEliminar" layoutX="349.0" layoutY="225.0" mnemonicParsing="false" onAction="#eliminarEmpleadoAction" prefHeight="26.0" prefWidth="103.0" text="Eliminar" />

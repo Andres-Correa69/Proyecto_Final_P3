@@ -50,6 +50,12 @@ public class EmpleadoViewController {
     private TableColumn<EmpleadoDto, String> tcNombre;
 
     @FXML
+    private TableColumn<EmpleadoDto, String> tcListaEventosAsig;
+
+    @FXML
+    private TextField txtListaEventosAsig;
+
+    @FXML
     private TextField txtCorreo;
 
     @FXML
@@ -76,6 +82,7 @@ public class EmpleadoViewController {
         tcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().id()));
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
         tcCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().correo()));
+        tcListaEventosAsig.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().listaEventoAsigAsociados()));
 
     }
 
@@ -93,6 +100,7 @@ public class EmpleadoViewController {
             txtId.setText(empleadoSeleccionado.id());
             txtNombre.setText(empleadoSeleccionado.nombre());
             txtCorreo.setText(empleadoSeleccionado.correo());
+            txtListaEventosAsig.setText(empleadoSeleccionado.listaEventoAsigAsociados());
         }
     }
 
@@ -101,6 +109,8 @@ public class EmpleadoViewController {
         txtId.setText("Ingrese el ID");
         txtNombre.setText("Ingrese el nombre");
         txtCorreo.setText("Ingrese el correo");
+        txtListaEventosAsig.setText("Ingrese el ID de los eventos asignados");
+
 
     }
 
@@ -120,6 +130,7 @@ public class EmpleadoViewController {
 
     private void crearEmpleado(){
         EmpleadoDto empleadoDto = construirEmpleadoDto();
+
         if(datosValidos(empleadoDto)){
             if(empleadoControllerService.agregarEmpleado(empleadoDto)){
                 listaEmpleadosDto.add(empleadoDto);
@@ -182,13 +193,15 @@ public class EmpleadoViewController {
         return new EmpleadoDto(
                 txtId.getText(),
                 txtNombre.getText(),
-                txtCorreo.getText());
+                txtCorreo.getText(),
+                txtListaEventosAsig.getText());
     }
 
     private void limpiarCamposEmpleado() {
         txtId.setText("");
         txtNombre.setText("");
         txtCorreo.setText("");
+        txtListaEventosAsig.setText("");
     }
 
     private boolean datosValidos(EmpleadoDto empleadoDto) {
@@ -199,6 +212,8 @@ public class EmpleadoViewController {
             mensaje += "El id es invalido \n";
         if (empleadoDto.correo() == null || empleadoDto.correo().equals(""))
             mensaje += "El id es invalido \n";
+        if (empleadoDto.listaEventoAsigAsociados() == null || empleadoDto.listaEventoAsigAsociados().equals(""))
+            mensaje += "Los eventos asignados son invalidos \n";
         if(mensaje.equals("")){
             return true;
         }else{

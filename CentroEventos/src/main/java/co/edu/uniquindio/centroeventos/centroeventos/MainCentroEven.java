@@ -13,7 +13,9 @@ public class MainCentroEven {
         EmpleadoDto empleadoDto = new EmpleadoDto(
                 "123456",
                 "juan",
-                "sdasf"
+                "sdasf",
+                "12,13,14,15"
+
         );
 
         if (modelFactoryController.agregarEmpleado(empleadoDto)){
