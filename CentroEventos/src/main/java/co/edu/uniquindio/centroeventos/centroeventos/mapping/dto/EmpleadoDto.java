@@ -4,5 +4,5 @@ public record EmpleadoDto(
 
         String nombre,
         String id,
-        String correo) {
+        String correo){
 }

@@ -3,10 +3,11 @@ package co.edu.uniquindio.centroeventos.centroeventos.controller;
 import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
-import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEventosMapper;
 import co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
 import co.edu.uniquindio.centroeventos.centroeventos.utils.CentroEvenUtils;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEvenMapper;
+
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ModelFactoryController implements IModelFactoryService {
 
     CentroEventos centroEventos;
 
-    CentroEventosMapper mapper = CentroEventosMapper.INSTANCE;
+    CentroEvenMapper mapper = CentroEvenMapper.INSTANCE;
 
     //------------------------------  Singleton ------------------------------------------------
     // Clase estatica oculta. Tan solo se instanciara el singleton una vez
