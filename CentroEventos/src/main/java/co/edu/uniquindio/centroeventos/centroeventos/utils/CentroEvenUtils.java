@@ -7,8 +7,8 @@ public class CentroEvenUtils {
     public static CentroEventos inicializarDatos() {
         CentroEventos centroEventos = new CentroEventos();
         Empleado empleado = new Empleado();
-        empleado.setNombre("juan");
         empleado.setId("12345");
+        empleado.setNombre("juan");
         empleado.setCorreo("awdawd@gmail.com");
         centroEventos.getListaEmpleados().add(empleado);
 

@@ -98,8 +98,8 @@ public class EmpleadoViewController {
 
     @FXML
     void nuevoEmpleadoAction(ActionEvent event) {
-        txtNombre.setText("Ingrese el nombre");
         txtId.setText("Ingrese el ID");
+        txtNombre.setText("Ingrese el nombre");
         txtCorreo.setText("Ingrese el correo");
 
     }

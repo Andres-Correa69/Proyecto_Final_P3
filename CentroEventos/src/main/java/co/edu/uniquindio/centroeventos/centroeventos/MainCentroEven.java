@@ -11,8 +11,8 @@ public class MainCentroEven {
         ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
 
         EmpleadoDto empleadoDto = new EmpleadoDto(
-                "juan",
                 "123456",
+                "juan",
                 "sdasf"
         );
 
