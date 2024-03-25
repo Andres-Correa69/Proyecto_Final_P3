@@ -6,6 +6,7 @@ public class Usuario extends Persona{
 
     //declaracion de variables
 
+    private String idReservas;
     ArrayList<Reserva> listaReservasAsociado = new ArrayList<Reserva>();
 
 
@@ -24,5 +25,13 @@ public class Usuario extends Persona{
 
     public void setListaReservasAsociado(ArrayList<Reserva> listaReservasAsociado) {
         this.listaReservasAsociado = listaReservasAsociado;
+    }
+
+    public String getIdReservas() {
+        return idReservas;
+    }
+
+    public void setIdReservas(String idReservas) {
+        this.idReservas = idReservas;
     }
 }

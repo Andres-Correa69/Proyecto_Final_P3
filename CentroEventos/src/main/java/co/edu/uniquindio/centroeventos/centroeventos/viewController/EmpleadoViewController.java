@@ -211,13 +211,13 @@ public class EmpleadoViewController {
         if (empleadoDto.id() == null || empleadoDto.id().equals(""))
             mensaje += "El id es invalido \n";
         if (empleadoDto.correo() == null || empleadoDto.correo().equals(""))
-            mensaje += "El id es invalido \n";
+            mensaje += "El correo es invalido \n";
         if (empleadoDto.listaEventoAsigAsociados() == null || empleadoDto.listaEventoAsigAsociados().equals(""))
             mensaje += "Los eventos asignados son invalidos \n";
         if(mensaje.equals("")){
             return true;
         }else{
-            mostrarMensaje("Notificación cliente","Datos invalidos",mensaje, Alert.AlertType.WARNING);
+            mostrarMensaje("Notificación empleado","Datos invalidos",mensaje, Alert.AlertType.WARNING);
             return false;
         }
     }

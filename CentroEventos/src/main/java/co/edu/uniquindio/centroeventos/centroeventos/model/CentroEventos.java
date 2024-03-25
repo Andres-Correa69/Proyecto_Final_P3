@@ -1,6 +1,7 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.model.services.ICentroEventosService;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class CentroEventos implements ICentroEventosService {
     ArrayList<Evento> listaEventos = new ArrayList<>();
 
     //constructor
-    public CentroEventos(){
+    public CentroEventos() {
 
     }
 
@@ -60,9 +61,9 @@ public class CentroEventos implements ICentroEventosService {
     public Empleado crearEmpleado(String id, String nombre, String correo) throws EmpleadoException {
         Empleado nuevoEmpleado = null;
         boolean empleadoExiste = verificarEmpleadoExiste(id);
-        if (empleadoExiste){
+        if (empleadoExiste) {
             throw new EmpleadoException("El empleado con ID: " + id + " ya existe.");
-        }else {
+        } else {
             nuevoEmpleado = new Empleado();
             nuevoEmpleado.setNombre(nombre);
             nuevoEmpleado.setId(id);
@@ -73,16 +74,16 @@ public class CentroEventos implements ICentroEventosService {
         return nuevoEmpleado;
     }
 
-    public void agregarEmpleado(Empleado nuevoEmpleado) throws EmpleadoException{
+    public void agregarEmpleado(Empleado nuevoEmpleado) throws EmpleadoException {
         getListaEmpleados().add(nuevoEmpleado);
     }
 
     @Override
     public boolean actualizarEmpleado(String idActual, Empleado empleado) throws EmpleadoException {
         Empleado empleadoActual = obtenerEmpleado(idActual);
-        if (empleadoActual == null){
-            throw  new EmpleadoException("El empleado a actualizar no existe");
-        }else{
+        if (empleadoActual == null) {
+            throw new EmpleadoException("El empleado a actualizar no existe");
+        } else {
             empleadoActual.setNombre(empleado.getNombre());
             empleadoActual.setId(empleado.getId());
             empleadoActual.setCorreo(empleado.getCorreo());
@@ -97,7 +98,7 @@ public class CentroEventos implements ICentroEventosService {
         boolean flagExiste = false;
         empleado = obtenerEmpleado(id);
         if (empleado == null)
-            throw  new EmpleadoException("El empleado a eliminar no existe");
+            throw new EmpleadoException("El empleado a eliminar no existe");
         else {
             getListaEmpleados().remove(empleado);
             flagExiste = true;
@@ -106,12 +107,11 @@ public class CentroEventos implements ICentroEventosService {
     }
 
 
-
     @Override
     public boolean verificarEmpleadoExiste(String id) throws EmpleadoException {
-        if (empleadoExiste(id)){
+        if (empleadoExiste(id)) {
             throw new EmpleadoException("El empleado con cedula: " + id + " ya existe");
-        }else {
+        } else {
             return false;
         }
 
@@ -120,8 +120,8 @@ public class CentroEventos implements ICentroEventosService {
     @Override
     public Empleado obtenerEmpleado(String id) {
         Empleado empleadoEncontrado = null;
-        for (Empleado empleado : getListaEmpleados()){
-            if (empleado.getId().equalsIgnoreCase(id)){
+        for (Empleado empleado : getListaEmpleados()) {
+            if (empleado.getId().equalsIgnoreCase(id)) {
                 empleadoEncontrado = empleado;
                 break;
             }
@@ -134,14 +134,106 @@ public class CentroEventos implements ICentroEventosService {
         return getListaEmpleados();
     }
 
-    public  boolean empleadoExiste(String id){
+
+    public boolean empleadoExiste(String id) {
         boolean empleadoEncontrado = false;
-        for (Empleado empleado : getListaEmpleados()){
-            if (empleado.getId().equalsIgnoreCase(id)){
+        for (Empleado empleado : getListaEmpleados()) {
+            if (empleado.getId().equalsIgnoreCase(id)) {
                 empleadoEncontrado = true;
                 break;
             }
         }
-        return  empleadoEncontrado;
+        return empleadoEncontrado;
     }
+
+    // creacion usuarios centro eventos
+
+    @Override
+    public Usuario crearUsuario(String id, String nombre, String correo)throws UsuarioException {
+        Usuario nuevoUsuario = null;
+        boolean usuarioExiste = verificarUsuarioExiste(id);
+        if (usuarioExiste) {
+            throw new UsuarioException("El Usuario con ID: " + id + " ya existe.");
+        } else {
+            nuevoUsuario = new Usuario();
+            nuevoUsuario.setNombre(nombre);
+            nuevoUsuario.setId(id);
+            nuevoUsuario.setCorreo(correo);
+            getListaUsuarios().add(nuevoUsuario);
+
+        }
+        return nuevoUsuario;
+    }
+
+    public void agregarUsuario(Usuario nuevoUsuario) throws UsuarioException {
+        getListaUsuarios().add(nuevoUsuario);
+    }
+
+    @Override
+    public boolean actualizarUsuario(String idActual, Usuario usuario) throws UsuarioException {
+        Usuario usuarioActual = obtenerUsuario(idActual);
+        if (usuarioActual == null) {
+            throw new UsuarioException("El Usuario a actualizar no existe");
+        } else {
+            usuarioActual.setNombre(usuario.getNombre());
+            usuarioActual.setId(usuario.getId());
+            usuarioActual.setCorreo(usuario.getCorreo());
+            return true;
+        }
+    }
+
+
+    @Override
+    public Boolean eliminarUsuario(String id)throws UsuarioException {
+        Usuario usuario = null;
+        boolean flagExiste = false;
+        usuario = obtenerUsuario(id);
+        if (usuario == null)
+            throw new UsuarioException("El Usuario a eliminar no existe");
+        else {
+            getListaEmpleados().remove(usuario);
+            flagExiste = true;
+        }
+        return flagExiste;
+    }
+
+
+
+    @Override
+    public boolean verificarUsuarioExiste(String id) throws UsuarioException {
+        if (usuarioExiste(id)) {
+            throw new UsuarioException("El usuario con cedula: " + id + " ya existe");
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Usuario obtenerUsuario(String id) {
+        Usuario usuarioEncontrado = null;
+        for (Usuario usuario : getListaUsuarios()) {
+            if (usuario.getId().equalsIgnoreCase(id)) {
+                usuarioEncontrado = usuario;
+                break;
+            }
+        }
+        return usuarioEncontrado;
+    }
+
+    @Override
+    public ArrayList<Usuario> obtenerUsuarios() {
+        return getListaUsuarios();
+    }
+
+    public boolean usuarioExiste(String id) {
+        boolean usuarioEncontrado = false;
+        for (Usuario usuario : getListaUsuarios()) {
+            if (usuario.getId().equalsIgnoreCase(id)) {
+                usuarioEncontrado = true;
+                break;
+            }
+        }
+        return usuarioEncontrado;
+    }
+
 }

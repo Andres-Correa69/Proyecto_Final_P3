@@ -2,9 +2,12 @@ package co.edu.uniquindio.centroeventos.centroeventos.controller;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import co.edu.uniquindio.centroeventos.centroeventos.utils.CentroEvenUtils;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEvenMapper;
 
@@ -83,4 +86,51 @@ public class ModelFactoryController implements IModelFactoryService {
         }
 
     }
+
+
+    //USUARIO
+    @Override
+    public List<UsuarioDto> obtenerUsuarios() {
+        return mapper.getUsuarioDto(centroEventos.getListaUsuarios());
+    }
+
+    @Override
+    public boolean agregarUsuario(UsuarioDto usuarioDto) {
+        try{
+            if (!centroEventos.verificarUsuarioExiste(usuarioDto.id())){
+                Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
+                getCentroEventos().agregarUsuario(usuario);
+
+            }
+            return true;
+        }catch (UsuarioException e){
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean eliminarUsuarios(String id) {
+        boolean flagExiste = false;
+        try{
+            flagExiste = getCentroEventos().eliminarUsuario(id);
+        }catch (UsuarioException e){
+            e.printStackTrace();
+        }
+        return flagExiste;
+    }
+
+    @Override
+    public boolean actualizarUsuarios(String idActual, UsuarioDto usuarioDto) {
+        try{
+            Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
+            getCentroEventos().actualizarUsuario(idActual, usuario);
+            return true;
+        }catch (UsuarioException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 }

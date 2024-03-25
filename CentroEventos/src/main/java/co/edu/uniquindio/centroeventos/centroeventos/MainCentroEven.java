@@ -2,6 +2,7 @@ package co.edu.uniquindio.centroeventos.centroeventos;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.ModelFactoryController;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 
 
 import java.util.List;
@@ -26,5 +27,24 @@ public class MainCentroEven {
 
         List<EmpleadoDto> empleadoDtoList = modelFactoryController.obtenerEmpleados();
         empleadoDtoList.forEach(System.out::println);
+
+        //USUARIO
+
+        UsuarioDto usuarioDto = new UsuarioDto(
+                "123456",
+                "juan",
+                "sdasf",
+                "12,13,14,15"
+
+        );
+
+        if (modelFactoryController.agregarUsuario(usuarioDto)){
+            System.out.println("No existe se agrego correctamente");
+        }else{
+            System.out.println("Ya existe");
+        }
+
+        List<UsuarioDto> usuarioDtoList = modelFactoryController.obtenerUsuarios();
+        usuarioDtoList.forEach(System.out::println);
     }
 }
