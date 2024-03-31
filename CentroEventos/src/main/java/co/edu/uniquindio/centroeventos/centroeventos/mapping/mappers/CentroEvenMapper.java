@@ -1,7 +1,9 @@
 package co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
@@ -15,6 +17,7 @@ public interface CentroEvenMapper {
 
     CentroEvenMapper INSTANCE = Mappers.getMapper(CentroEvenMapper.class);
 
+    //empleado Dto
     @Named("empleadoToEmpleadoDto")
     EmpleadoDto empleadoToEmpleadoDto(Empleado empleado);
 
@@ -23,6 +26,7 @@ public interface CentroEvenMapper {
     @IterableMapping(qualifiedByName = "empleadoToEmpleadoDto")
     List<EmpleadoDto> getEmpleadosDto(List<Empleado> listsEmpleados);
 
+    //usuario Dto
 
     @Named("usuarioToUsuarioDto")
     UsuarioDto usurarioToUsuarioDto(Usuario usuario);
@@ -32,6 +36,14 @@ public interface CentroEvenMapper {
     @IterableMapping(qualifiedByName = "usuarioToUsuarioDto")
     List<UsuarioDto> getUsuarioDto(List<Usuario> listsUsuarios);
 
+    //Evento Dto
 
+    @Named("eventoToEventoDto")
+    EventoDto eventoToEventoDto(Evento evento);
+
+    Evento eventoDtoToEvento(EventoDto eventoDto);
+
+    @IterableMapping(qualifiedByName = "eventoToEventoDto")
+    List<EventoDto> getEventoDto(List<Evento> listsEventos);
 }
 

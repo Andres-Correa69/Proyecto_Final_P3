@@ -1,10 +1,13 @@
 package co.edu.uniquindio.centroeventos.centroeventos;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.ModelFactoryController;
+import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class MainCentroEven {
@@ -46,5 +49,31 @@ public class MainCentroEven {
 
         List<UsuarioDto> usuarioDtoList = modelFactoryController.obtenerUsuarios();
         usuarioDtoList.forEach(System.out::println);
+
+        //EVENTO
+
+        EventoDto eventoDto = new EventoDto(
+                "123456",
+                "juan",
+                "sdasf",
+                LocalDate.now().toString(), // Obtener la fecha actual
+                "1000",
+                "12",
+                "345"
+        );
+
+        if (modelFactoryController.agregarEvento(eventoDto)) {
+            System.out.println("El evento se agregó correctamente");
+        } else {
+            System.out.println("El evento ya existe");
+        }
+
+        // Listar eventos
+        List<EventoDto> eventoDtoList = modelFactoryController.obtenerEventos();
+        eventoDtoList.forEach(System.out::println);
+
     }
+
+
 }
+

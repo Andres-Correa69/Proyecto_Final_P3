@@ -7,11 +7,14 @@ public class Evento {
 
     //declaracion variables
 
-    private String Codigo;
+    private String id;
     private String nombre;
     private String descripcion;
     private LocalDate fecha;
     private Integer capacidadMax;
+    private String idEmpleadoEncargado;
+    private String idReserva;
+
     ArrayList<Empleado> listaEmpleadosEnAsociado = new ArrayList<Empleado>();
     ArrayList<Reserva> listaReservasAsociadas = new ArrayList<Reserva>();
 
@@ -21,12 +24,12 @@ public class Evento {
 
     //getters y setters
 
-    public String getCodigo() {
-        return Codigo;
+    public String getId() {
+        return id;
     }
 
-    public void setCodigo(String codigo) {
-        Codigo = codigo;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -59,6 +62,22 @@ public class Evento {
 
     public void setCapacidadMax(Integer capacidadMax) {
         this.capacidadMax = capacidadMax;
+    }
+
+    public String getIdEmpleadoEncargado() {
+        return idEmpleadoEncargado;
+    }
+
+    public void setIdEmpleadoEncargado(String idEmpleadoEncargado) {
+        this.idEmpleadoEncargado = idEmpleadoEncargado;
+    }
+
+    public String getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(String idReserva) {
+        this.idReserva = idReserva;
     }
 
     public ArrayList<Empleado> getListaEmpleadosEnAsociado() {

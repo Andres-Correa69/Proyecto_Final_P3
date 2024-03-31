@@ -2,11 +2,14 @@ package co.edu.uniquindio.centroeventos.centroeventos.controller;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EventoException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import co.edu.uniquindio.centroeventos.centroeventos.utils.CentroEvenUtils;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEvenMapper;
@@ -132,5 +135,49 @@ public class ModelFactoryController implements IModelFactoryService {
         }
     }
 
+    //EVENTOS
 
+
+    @Override
+    public List<EventoDto> obtenerEventos() {
+        return mapper.getEventoDto(centroEventos.getListaEventos());
+    }
+
+    @Override
+    public boolean agregarEvento(EventoDto eventoDto) {
+        try{
+            if (!centroEventos.verificarEventoExiste(eventoDto.id())){
+                Evento evento = mapper.eventoDtoToEvento(eventoDto);
+                getCentroEventos().agregarEvento(evento);
+
+            }
+            return true;
+        }catch (EventoException e){
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean eliminarEventos(String id) {
+        boolean flagExiste = false;
+        try{
+            flagExiste = getCentroEventos().eliminarEvento(id);
+        }catch (EventoException e){
+            e.printStackTrace();
+        }
+        return flagExiste;
+    }
+
+    @Override
+    public boolean actualizarEventos(String idActual, EventoDto eventoDto) {
+        try{
+            Evento evento = mapper.eventoDtoToEvento(eventoDto);
+            getCentroEventos().actualizarEvento(idActual, evento);
+            return true;
+        }catch (EventoException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

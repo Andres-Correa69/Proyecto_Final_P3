@@ -1,6 +1,7 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EventoException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.model.services.ICentroEventosService;
 
@@ -191,7 +192,7 @@ public class CentroEventos implements ICentroEventosService {
         if (usuario == null)
             throw new UsuarioException("El Usuario a eliminar no existe");
         else {
-            getListaEmpleados().remove(usuario);
+            getListaUsuarios().remove(usuario);
             flagExiste = true;
         }
         return flagExiste;
@@ -236,4 +237,92 @@ public class CentroEventos implements ICentroEventosService {
         return usuarioEncontrado;
     }
 
+    // creacion Eventos centro eventos
+
+
+    @Override
+    public Evento crearEvento(String id, String nombre, String descripcion) throws EventoException {
+        Evento nuevoEvento = null;
+        boolean eventoExiste = verificarEventoExiste(id);
+        if (eventoExiste) {
+            throw new EventoException("El Evento con ID: " + id + " ya existe.");
+        } else {
+            nuevoEvento = new Evento();
+            nuevoEvento.setNombre(nombre);
+            nuevoEvento.setId(id);
+            nuevoEvento.setDescripcion(descripcion);
+            getListaEventos().add(nuevoEvento);
+
+        }
+        return nuevoEvento;
+    }
+
+    public void agregarEvento(Evento nuevoEvento) throws EventoException {
+        getListaEventos().add(nuevoEvento);
+    }
+
+    @Override
+    public boolean actualizarEvento(String idActual, Evento evento) throws EventoException {
+        Evento eventoActual = obtenerEvento(idActual);
+        if (eventoActual == null) {
+            throw new EventoException("El Evento a actualizar no existe");
+        } else {
+            eventoActual.setNombre(evento.getNombre());
+            eventoActual.setId(evento.getId());
+            eventoActual.setDescripcion(evento.getDescripcion());
+            return true;
+        }
+    }
+    @Override
+    public Boolean eliminarEvento(String id) throws EventoException {
+        Evento evento = null;
+        boolean flagExiste = false;
+        evento = obtenerEvento(id);
+        if (evento == null)
+            throw new EventoException("El Evento a eliminar no existe");
+        else {
+            getListaEventos().remove(evento);
+            flagExiste = true;
+        }
+        return flagExiste;
+    }
+
+
+
+    @Override
+    public boolean verificarEventoExiste(String id) throws EventoException {
+        if (eventoExiste(id)) {
+            throw new EventoException("El evento con ID: " + id + " ya existe");
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Evento obtenerEvento(String id) {
+        Evento eventoEncontrado = null;
+        for (Evento evento : getListaEventos()) {
+            if (evento.getId().equalsIgnoreCase(id)) {
+                eventoEncontrado = evento;
+                break;
+            }
+        }
+        return eventoEncontrado;
+    }
+
+    @Override
+    public ArrayList<Evento> obtenerEventos() {
+        return getListaEventos();
+    }
+
+    public boolean eventoExiste(String id) {
+        boolean eventoEncontado = false;
+        for (Evento evento : getListaEventos()) {
+            if (evento.getId().equalsIgnoreCase(id)) {
+                eventoEncontado = true;
+                break;
+            }
+        }
+        return eventoEncontado;
+    }
 }

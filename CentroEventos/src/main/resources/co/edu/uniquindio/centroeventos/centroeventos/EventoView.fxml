@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="527.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.centroeventos.centroeventos.viewController.EventoViewController">
+    <children>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="527.0" prefWidth="792.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <GridPane layoutX="136.0" layoutY="7.0" prefHeight="186.0" prefWidth="518.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Text strokeType="INSIDE" strokeWidth="0.0" text="ID:" wrappingWidth="257.3367462158203">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="12.0" />
+                                    </font>
+                                </Text>
+                                <TextField fx:id="txtId" GridPane.columnIndex="1" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="12.0" />
+                                    </font>
+                                </Text>
+                                <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion:" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="12.0" />
+                                    </font>
+                                </Text>
+                                <TextField fx:id="txtDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font name="SansSerif Regular" size="12.0" />
+                                    </font>
+                                </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Capacidad Maxima:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="txtFecha" prefHeight="26.0" prefWidth="266.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtCapacidadMax" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Empleado Encargado:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID Reservas:" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtEmpleadoEncargado" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="txtIdReserva" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                            </children>
+                        </GridPane>
+                        <Button fx:id="btnNuevo" layoutX="174.0" layoutY="215.0" mnemonicParsing="false" onAction="#nuevoEventoAction" prefHeight="26.0" prefWidth="103.0" text="Nuevo" />
+                        <Button fx:id="btnAgregar" layoutX="343.0" layoutY="215.0" mnemonicParsing="false" onAction="#agregarEventoAction" prefHeight="26.0" prefWidth="103.0" text="Agregar">
+                            <font>
+                                <Font name="SansSerif Regular" size="12.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnActualizar" layoutX="517.0" layoutY="215.0" mnemonicParsing="false" onAction="#actualizarEventoAction" prefHeight="26.0" prefWidth="103.0" text="Actualizar" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <TableView fx:id="tableEventos" layoutX="64.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                            <columns>
+                                <TableColumn fx:id="tcId" prefWidth="103.99996948242188" text="ID" />
+                                <TableColumn fx:id="tcNombre" prefWidth="138.3999786376953" text="Nombre" />
+                                <TableColumn fx:id="tcDescripcion" minWidth="8.0" prefWidth="205.5999755859375" text="Descripcion" />
+                        <TableColumn fx:id="tcFecha" minWidth="8.0" prefWidth="152.7999267578125" text="Fecha" />
+                        <TableColumn fx:id="tcCapacidadMax" minWidth="8.0" prefWidth="152.7999267578125" text="Capacidad" />
+                        <TableColumn fx:id="tcEmpleadoEncargado" prefWidth="138.3999786376953" text="Empleado Enc" />
+                        <TableColumn fx:id="tcIdReservas" prefWidth="138.3999786376953" text="Reservas" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnEliminar" layoutX="349.0" layoutY="225.0" mnemonicParsing="false" onAction="#eliminarEventoAction" prefHeight="26.0" prefWidth="103.0" text="Eliminar" />
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
