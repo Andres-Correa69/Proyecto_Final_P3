@@ -16,13 +16,24 @@ public class CentroEvenUtils {
         empleado.setListaEventoAsigAsociados("12,13,14,15");
         centroEventos.getListaEmpleados().add(empleado);
 
+
+        //reserva utils
+
+        Reserva reserva = new Reserva();
+        reserva.setId("4566");
+        reserva.setIdEvento("35");
+        reserva.setIdUsuario("65");
+        reserva.setFechaSolicitud(LocalDate.now());
+        reserva.setEstadoReserva(TipoEstadoReserva.PENDIENTE);
+        centroEventos.getListaReservas().add(reserva);
+
         //usuarios utils
 
         Usuario usuario = new Usuario();
         usuario.setId("12345");
         usuario.setNombre("alberto");
         usuario.setCorreo("alberto494@gmail.com");
-        usuario.setIdReservas("65,23,45");
+        usuario.setReserva(reserva);
         centroEventos.getListaUsuarios().add(usuario);
 
         //eventos utils
@@ -38,15 +49,7 @@ public class CentroEvenUtils {
 
 
 
-        //reserva utils
 
-        Reserva reserva = new Reserva();
-        reserva.setId("45");
-        reserva.setIdEvento("35");
-        reserva.setIdUsuario("65");
-        reserva.setFechaSolicitud(LocalDate.now());
-        reserva.setEstadoReserva(TipoEstadoReserva.PENDIENTE);
-        centroEventos.getListaReservas().add(reserva);
 
         return centroEventos;
 

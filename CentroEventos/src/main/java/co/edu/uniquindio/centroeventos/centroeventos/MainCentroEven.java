@@ -6,6 +6,7 @@ import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
 import co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva;
 
 
@@ -39,7 +40,7 @@ public class MainCentroEven {
                 "123456",
                 "juan",
                 "sdasf",
-                "12,13,14,15"
+                new Reserva()
 
         );
 

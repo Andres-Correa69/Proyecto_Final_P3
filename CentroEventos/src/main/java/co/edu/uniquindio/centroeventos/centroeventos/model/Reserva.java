@@ -2,7 +2,6 @@ package co.edu.uniquindio.centroeventos.centroeventos.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Reserva {
 
@@ -23,6 +22,9 @@ public class Reserva {
     public Reserva(){
     }
 
+    public Reserva(String id) {
+        this.id = id;
+    }
     //getters y setters
 
 
@@ -81,4 +83,6 @@ public class Reserva {
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+
 }

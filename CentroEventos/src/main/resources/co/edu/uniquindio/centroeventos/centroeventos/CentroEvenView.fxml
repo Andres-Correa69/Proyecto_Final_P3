@@ -4,33 +4,32 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="555.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.centroeventos.centroeventos.viewController.CentroEvenViewController">
    <children>
       <TabPane prefHeight="560.0" prefWidth="786.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Empleado">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                <fx:include source="EmpleadoView.fxml" />
-            </content>
-          </Tab>
           <Tab text="Usuario">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                 <fx:include source="UsuarioView.fxml" />
             </content>
           </Tab>
+          <Tab text="Empleado">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <fx:include source="EmpleadoView.fxml" />
+            </content>
+          </Tab>
             <Tab text="Evento">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    <fx:include source="EventoView.fxml"/>
+                    <fx:include source="EventoView.fxml" />
                </content>
             </Tab>
             <Tab text="Reserva">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                   <fx:include source="ReservaView.fxml"/>
+                   <fx:include source="ReservaView.fxml" />
 
                </content>
             </Tab>

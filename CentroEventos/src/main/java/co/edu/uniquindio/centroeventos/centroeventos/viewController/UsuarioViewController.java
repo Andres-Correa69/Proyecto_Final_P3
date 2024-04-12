@@ -2,6 +2,7 @@ package co.edu.uniquindio.centroeventos.centroeventos.viewController;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.UsuarioController;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -82,7 +83,7 @@ public class UsuarioViewController {
         tcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().id()));
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
         tcCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().correo()));
-        tcIdReservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idReservas()));
+        tcIdReservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().reserva().getId()));
 
     }
 
@@ -100,7 +101,7 @@ public class UsuarioViewController {
             txtId.setText(usuarioSeleccionado.id());
             txtNombre.setText(usuarioSeleccionado.nombre());
             txtCorreo.setText(usuarioSeleccionado.correo());
-            txtIdReserva.setText(usuarioSeleccionado.idReservas());
+            txtIdReserva.setText(usuarioSeleccionado.reserva().getId());
         }
     }
 
@@ -190,11 +191,14 @@ public class UsuarioViewController {
     }
 
     private UsuarioDto construirUsuarioDto() {
+        String reservaId = txtIdReserva.getText();
+        Reserva reserva1 = new Reserva(reservaId);
         return new UsuarioDto(
                 txtId.getText(),
                 txtNombre.getText(),
                 txtCorreo.getText(),
-                txtIdReserva.getText());
+                reserva1
+                );
     }
 
     private void limpiarCamposUsuario() {
@@ -212,8 +216,8 @@ public class UsuarioViewController {
             mensaje += "El id es invalido \n";
         if (usuarioDto.correo() == null || usuarioDto.correo().equals(""))
             mensaje += "El correo es invalido \n";
-        if (usuarioDto.idReservas() == null || usuarioDto.idReservas().equals(""))
-            mensaje += "Los id de las reservas son invalidos \n";
+//        if (usuarioDto.reserva().getId() == null || usuarioDto.reserva().getId().equals(""))
+//            mensaje += "Los id de las reservas son invalidos \n";
         if(mensaje.equals("")){
             return true;
         }else{

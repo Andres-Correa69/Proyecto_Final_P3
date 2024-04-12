@@ -14,6 +14,8 @@ module co.edu.uniquindio.centroeventos.centroeventos {
     requires javafx.fxml;
     requires org.controlsfx.controls;
     requires org.mapstruct;
+    requires java.logging;
+    requires java.desktop;
 
     opens co.edu.uniquindio.centroeventos.centroeventos to javafx.fxml;
     exports co.edu.uniquindio.centroeventos.centroeventos;
