@@ -1,9 +1,11 @@
 package co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
@@ -45,5 +47,13 @@ public interface CentroEvenMapper {
 
     @IterableMapping(qualifiedByName = "eventoToEventoDto")
     List<EventoDto> getEventoDto(List<Evento> listsEventos);
+
+    @Named("reservaToReservaDto")
+    ReservaDto reservaToReservaDto(Reserva reserva);
+
+    Reserva reservaDtoToReserva(ReservaDto reservaDto);
+
+    @IterableMapping(qualifiedByName = "reservaToReservaDto")
+    List<ReservaDto> getReservaDto(List<Reserva> listsReservas);
 }
 

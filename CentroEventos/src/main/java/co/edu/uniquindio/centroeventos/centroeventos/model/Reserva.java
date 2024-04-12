@@ -7,11 +7,16 @@ import java.util.Locale;
 public class Reserva {
 
     //declaracion de variables
-    private String codigo;
+    private String id;
+
+    private String idEvento;
+    private String idUsuario;
     ArrayList<Usuario> listaUsuarioAsociado =new ArrayList<Usuario>();
     ArrayList<Evento> listaEventosAsociados = new ArrayList<Evento>();
     private LocalDate fechaSolicitud;
-    TipoEstadoReserva EstadoReserva;
+
+    private  TipoEstadoReserva estadoReserva;
+
 
     //constructor
 
@@ -21,12 +26,12 @@ public class Reserva {
     //getters y setters
 
 
-    public String getCodigo() {
-        return codigo;
+    public String getId() {
+        return id;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public ArrayList<Usuario> getListaUsuarioAsociado() {
@@ -54,10 +59,26 @@ public class Reserva {
     }
 
     public TipoEstadoReserva getEstadoReserva() {
-        return EstadoReserva;
+        return estadoReserva;
     }
 
     public void setEstadoReserva(TipoEstadoReserva estadoReserva) {
-        EstadoReserva = estadoReserva;
+        this.estadoReserva = estadoReserva;
+    }
+
+    public String getIdEvento() {
+        return idEvento;
+    }
+
+    public void setIdEvento(String idEvento) {
+        this.idEvento = idEvento;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

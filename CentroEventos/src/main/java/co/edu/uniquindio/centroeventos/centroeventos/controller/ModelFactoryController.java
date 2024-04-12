@@ -3,14 +3,13 @@ package co.edu.uniquindio.centroeventos.centroeventos.controller;
 import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EventoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.ReservaException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
+import co.edu.uniquindio.centroeventos.centroeventos.model.*;
 import co.edu.uniquindio.centroeventos.centroeventos.utils.CentroEvenUtils;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEvenMapper;
 
@@ -45,6 +44,8 @@ public class ModelFactoryController implements IModelFactoryService {
     public CentroEventos getCentroEventos() {return centroEventos;}
 
     public void setCentroEventos(CentroEventos centroEventos) {this.centroEventos = centroEventos;}
+
+    //EMPLEADO
 
     @Override
     public List<EmpleadoDto> obtenerEmpleados() {
@@ -176,6 +177,52 @@ public class ModelFactoryController implements IModelFactoryService {
             getCentroEventos().actualizarEvento(idActual, evento);
             return true;
         }catch (EventoException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    //RESERVA
+
+
+    @Override
+    public List<ReservaDto> obtenerReservas() {
+        return mapper.getReservaDto(centroEventos.getListaReservas());
+    }
+
+    @Override
+    public boolean agregarReserva(ReservaDto reservaDto) {
+        try{
+            if (!centroEventos.verificarReservaExiste(reservaDto.id())){
+                Reserva reserva = mapper.reservaDtoToReserva(reservaDto);
+                getCentroEventos().agregarReserva(reserva);
+
+            }
+            return true;
+        }catch (ReservaException e){
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean eliminarReservas(String id) {
+        boolean flagExiste = false;
+        try{
+            flagExiste = getCentroEventos().eliminarReserva(id);
+        }catch (ReservaException e){
+            e.printStackTrace();
+        }
+        return flagExiste;
+    }
+
+    @Override
+    public boolean actualizarReservas(String idActual, ReservaDto reservaDto) {
+        try{
+            Reserva reserva = mapper.reservaDtoToReserva(reservaDto);
+            getCentroEventos().actualizarReserva(idActual, reserva);
+            return true;
+        }catch (ReservaException e){
             e.printStackTrace();
             return false;
         }

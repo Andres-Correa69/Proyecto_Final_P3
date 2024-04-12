@@ -2,9 +2,11 @@ package co.edu.uniquindio.centroeventos.centroeventos.model;
 
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EventoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.ReservaException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.model.services.ICentroEventosService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CentroEventos implements ICentroEventosService {
@@ -324,5 +326,91 @@ public class CentroEventos implements ICentroEventosService {
             }
         }
         return eventoEncontado;
+    }
+
+    // creacion Reservas centro eventos
+
+
+    @Override
+    public Reserva crearReserva(String id) throws ReservaException {
+        Reserva nuevaReserva = null;
+        boolean reservaExiste = verificarReservaExiste(id);
+        if (reservaExiste) {
+            throw new ReservaException("la reserva con ID: " + id + " ya existe.");
+        } else {
+            nuevaReserva = new Reserva();
+            nuevaReserva.setId(id);
+            getListaReservas().add(nuevaReserva);
+
+        }
+        return nuevaReserva;
+    }
+
+    public void agregarReserva(Reserva nuevaReserva) throws ReservaException {
+        getListaReservas().add(nuevaReserva);
+    }
+
+    @Override
+    public boolean actualizarReserva(String idActual, Reserva reserva) throws ReservaException {
+        Reserva reservaActual = obtenerReserva(idActual);
+        if (reservaActual == null) {
+            throw new ReservaException("La reserva a actualizar no existe");
+        } else {
+            reservaActual.setId(reserva.getId());
+            return true;
+        }
+    }
+
+    @Override
+    public Boolean eliminarReserva(String id) throws ReservaException {
+        Reserva reserva = null;
+        boolean flagExiste = false;
+        reserva = obtenerReserva(id);
+        if (reserva == null)
+            throw new ReservaException("La reserva a eliminar no existe");
+        else {
+            getListaReservas().remove(reserva);
+            flagExiste = true;
+        }
+        return flagExiste;
+    }
+
+
+
+    @Override
+    public boolean verificarReservaExiste(String id) throws ReservaException {
+        if (reservaExiste(id)) {
+            throw new ReservaException("La Reserva con ID: " + id + " ya existe");
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Reserva obtenerReserva(String id) {
+        Reserva reservaEncontrada = null;
+        for (Reserva reserva : getListaReservas()) {
+            if (reserva.getId().equalsIgnoreCase(id)) {
+                reservaEncontrada = reserva;
+                break;
+            }
+        }
+        return reservaEncontrada;
+    }
+
+    @Override
+    public ArrayList<Reserva> obtenerReserva() {
+        return getListaReservas();
+    }
+
+    public boolean reservaExiste(String id) {
+        boolean reservaEncontrada = false;
+        for (Reserva reserva : getListaReservas()) {
+            if (reserva.getId().equalsIgnoreCase(id)) {
+                reservaEncontrada = true;
+                break;
+            }
+        }
+        return reservaEncontrada;
     }
 }

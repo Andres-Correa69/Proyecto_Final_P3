@@ -1,9 +1,6 @@
 package co.edu.uniquindio.centroeventos.centroeventos.utils;
 
-import co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
+import co.edu.uniquindio.centroeventos.centroeventos.model.*;
 
 import java.time.LocalDate;
 
@@ -40,8 +37,18 @@ public class CentroEvenUtils {
         centroEventos.getListaEventos().add(evento);
 
 
-        return centroEventos;
 
+        //reserva utils
+
+        Reserva reserva = new Reserva();
+        reserva.setId("45");
+        reserva.setIdEvento("35");
+        reserva.setIdUsuario("65");
+        reserva.setFechaSolicitud(LocalDate.now());
+        reserva.setEstadoReserva(TipoEstadoReserva.PENDIENTE);
+        centroEventos.getListaReservas().add(reserva);
+
+        return centroEventos;
 
     }
 

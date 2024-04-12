@@ -2,9 +2,11 @@ package co.edu.uniquindio.centroeventos.centroeventos.model.services;
 
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EventoException;
+import co.edu.uniquindio.centroeventos.centroeventos.exceptions.ReservaException;
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
 import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import javafx.event.Event;
 
@@ -38,4 +40,16 @@ public interface ICentroEventosService {
     public boolean verificarEventoExiste(String id)throws EventoException;
     public Evento obtenerEvento(String id);
     public ArrayList<Evento> obtenerEventos();
+
+
+    // reservas service
+
+    public Reserva crearReserva(String id)throws ReservaException;
+    public Boolean eliminarReserva(String id) throws ReservaException;
+    boolean actualizarReserva(String idActual, Reserva reserva)throws ReservaException;
+    public boolean verificarReservaExiste(String id)throws ReservaException;
+    public Reserva obtenerReserva(String id);
+    public ArrayList<Reserva> obtenerReserva();
+
+
 }

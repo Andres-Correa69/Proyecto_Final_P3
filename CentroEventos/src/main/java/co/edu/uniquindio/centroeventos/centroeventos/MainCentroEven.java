@@ -4,7 +4,9 @@ import co.edu.uniquindio.centroeventos.centroeventos.controller.ModelFactoryCont
 import co.edu.uniquindio.centroeventos.centroeventos.controller.service.IModelFactoryService;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva;
 
 
 import java.time.LocalDate;
@@ -72,7 +74,32 @@ public class MainCentroEven {
         List<EventoDto> eventoDtoList = modelFactoryController.obtenerEventos();
         eventoDtoList.forEach(System.out::println);
 
+        //RESERVA
+        ReservaDto reservaDto = new ReservaDto(
+                "35",
+                "25",
+                "65",
+                LocalDate.now().toString(),
+                TipoEstadoReserva.PENDIENTE
+        );
+
+        if (modelFactoryController.agregarReserva(reservaDto)){
+            System.out.println("La reserva se agrego correctamente");
+        }else{
+            System.out.println("La reserca ya existe");
+        }
+
+        //Listar reservas
+
+        List<ReservaDto> reservaDtoList = modelFactoryController.obtenerReservas();
+        reservaDtoList.forEach(System.out::println);
+
     }
+
+
+
+
+
 
 
 }
