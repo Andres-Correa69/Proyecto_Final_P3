@@ -6,8 +6,7 @@ import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
-import co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva;
+import co.edu.uniquindio.centroeventos.centroeventos.model.*;
 
 
 import java.time.LocalDate;
@@ -21,7 +20,7 @@ public class MainCentroEven {
                 "123456",
                 "juan",
                 "sdasf",
-                "12,13,14,15"
+                new Evento()
 
         );
 
@@ -61,8 +60,8 @@ public class MainCentroEven {
                 "sdasf",
                 LocalDate.now().toString(), // Obtener la fecha actual
                 "1000",
-                "12",
-                "345"
+                new Empleado(),
+                new Reserva()
         );
 
         if (modelFactoryController.agregarEvento(eventoDto)) {
@@ -78,8 +77,8 @@ public class MainCentroEven {
         //RESERVA
         ReservaDto reservaDto = new ReservaDto(
                 "35",
-                "25",
-                "65",
+                new Usuario(),
+                new Evento(),
                 LocalDate.now().toString(),
                 TipoEstadoReserva.PENDIENTE
         );

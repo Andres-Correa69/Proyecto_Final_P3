@@ -1,18 +1,23 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Reserva {
+public class Reserva implements Serializable {
 
     //declaracion de variables
+    private static final long serialVersionUID = 1L;
     private String id;
 
-    private String idEvento;
-    private String idUsuario;
+    private Evento evento;
+
+    private Usuario usuario;
+
+
     ArrayList<Usuario> listaUsuarioAsociado =new ArrayList<Usuario>();
     ArrayList<Evento> listaEventosAsociados = new ArrayList<Evento>();
-    private LocalDate fechaSolicitud;
+    private String fechaSolicitud;
 
     private  TipoEstadoReserva estadoReserva;
 
@@ -52,11 +57,11 @@ public class Reserva {
         this.listaEventosAsociados = listaEventosAsociados;
     }
 
-    public LocalDate getFechaSolicitud() {
+    public String getFechaSolicitud() {
         return fechaSolicitud;
     }
 
-    public void setFechaSolicitud(LocalDate fechaSolicitud) {
+    public void setFechaSolicitud(String fechaSolicitud) {
         this.fechaSolicitud = fechaSolicitud;
     }
 
@@ -68,21 +73,20 @@ public class Reserva {
         this.estadoReserva = estadoReserva;
     }
 
-    public String getIdEvento() {
-        return idEvento;
+
+    public Evento getEvento() {
+        return evento;
     }
 
-    public void setIdEvento(String idEvento) {
-        this.idEvento = idEvento;
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-
-
 }

@@ -3,7 +3,9 @@ package co.edu.uniquindio.centroeventos.centroeventos.viewController;
 import co.edu.uniquindio.centroeventos.centroeventos.controller.ReservaController;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.ReservaDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
 import co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Usuario;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -105,8 +107,8 @@ public class ReservaViewController {
     private void initDatabindig(){
 
         tcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().id()));
-        tcIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
-        tcIdEvento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idEvento()));
+        tcIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().usuario().getId()));
+        tcIdEvento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().evento().getId()));
         tcFechaSolicitud.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().fechaSolicitud()));
         tcEstadoReserva.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().estadoReserva().toString()));
 
@@ -126,8 +128,8 @@ public class ReservaViewController {
     private void mostrarInformacionReserva(ReservaDto reservaSeleccionado){
         if(reservaSeleccionado != null){
             txtId.setText(reservaSeleccionado.id());
-            txtIdUsuario.setText(reservaSeleccionado.idUsuario());
-            txtIdEvento.setText(reservaSeleccionado.idEvento());
+            txtIdUsuario.setText(reservaSeleccionado.usuario().getId());
+            txtIdEvento.setText(reservaSeleccionado.evento().getId());
             txtFechaSolucitud.setValue(LocalDate.parse(reservaSeleccionado.fechaSolicitud()));
             txtEstadoReserva.setText(String.valueOf(reservaSeleccionado.estadoReserva()));
         }
@@ -268,11 +270,15 @@ public class ReservaViewController {
 
         }
 
+        String usuarioId = txtIdUsuario.getText();
+        Usuario usuario1 = new Usuario(usuarioId);
 
+        String eventoId = txtIdUsuario.getText();
+        Evento evento1 = new Evento(eventoId);
         return new ReservaDto(
                 txtId.getText(),
-                txtIdUsuario.getText(),
-                txtIdEvento.getText(),
+                usuario1,
+                evento1,
                 fecha,
                 estadoReserva
                 );
@@ -290,9 +296,9 @@ public class ReservaViewController {
         String mensaje = "";
         if (reservaDto.id() == null || reservaDto.id().equals(""))
             mensaje += "El ID es invalido \n";
-        if (reservaDto.idUsuario() == null || reservaDto.idUsuario().equals(""))
+        if (reservaDto.usuario().getId() == null || reservaDto.usuario().getId().equals(""))
             mensaje += "El ID de usuario es invalido \n";
-        if (reservaDto.idEvento() == null || reservaDto.idEvento().equals(""))
+        if (reservaDto.evento().getId() == null || reservaDto.evento().getId().equals(""))
             mensaje += "El id del evento es invalido \n";
         if (reservaDto.fechaSolicitud() == null || reservaDto.fechaSolicitud().equals(""))
             mensaje += "la fecha es invalida \n";

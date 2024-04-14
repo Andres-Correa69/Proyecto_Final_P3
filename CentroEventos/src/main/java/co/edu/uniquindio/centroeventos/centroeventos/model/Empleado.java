@@ -2,18 +2,30 @@ package co.edu.uniquindio.centroeventos.centroeventos.model;
 
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.EmpleadoException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Empleado extends Persona {
+public class Empleado extends Persona implements Serializable {
+
 
     //declaracion de variables
-    private String listaEventoAsigAsociados;
+    private static final long serialVersionUID = 1L;
+    private Evento evento;
 
     ArrayList<Evento> listaEventosAsigAsociados = new ArrayList<Evento>();
 
     //constructor
     public Empleado() {
+
     }
+
+    public Empleado(String id){
+        super(id);
+        this.setId(id);
+
+    }
+
+
 
 
     //getters y setters
@@ -25,19 +37,19 @@ public class Empleado extends Persona {
         this.listaEventosAsigAsociados = listaEventosAsigAsociados;
     }
 
-    public String getListaEventoAsigAsociados() {
-        return listaEventoAsigAsociados;
+    public Evento getEvento() {
+        return evento;
     }
 
-    public void setListaEventoAsigAsociados(String listaEventoAsigAsociados) {
-        this.listaEventoAsigAsociados = listaEventoAsigAsociados;
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
-    public void datosListaEventosAsig(String listaEventoAsigAsociados) throws EmpleadoException {
+    public void datosListaEventosAsig(Evento evento) throws EmpleadoException {
         try {
             // Validación de datos
-            if (listaEventoAsigAsociados != null && !listaEventoAsigAsociados.isEmpty()) {
-                this.listaEventoAsigAsociados = listaEventoAsigAsociados;
+            if (evento.getId() != null && !evento.getId().isEmpty()) {
+                this.evento = evento;
             } else {
                 throw new NullPointerException("La lista de eventos asignados es nula o vacía.");
             }

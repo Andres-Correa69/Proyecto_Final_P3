@@ -1,15 +1,22 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
-public abstract class Persona {
+import java.io.Serializable;
+
+public abstract class Persona implements Serializable {
 
     //declaracion de variables
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String nombre;
     private String correo;
 
     //contructor
+    public Persona(String id){
+        this.id = id;
+    }
     public Persona(){
+
     }
 
 

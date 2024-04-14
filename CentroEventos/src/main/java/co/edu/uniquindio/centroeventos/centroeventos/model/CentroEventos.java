@@ -6,10 +6,10 @@ import co.edu.uniquindio.centroeventos.centroeventos.exceptions.ReservaException
 import co.edu.uniquindio.centroeventos.centroeventos.exceptions.UsuarioException;
 import co.edu.uniquindio.centroeventos.centroeventos.model.services.ICentroEventosService;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CentroEventos implements ICentroEventosService {
+public class CentroEventos implements ICentroEventosService, Serializable {
 
     //declaracion de variables
     private static final long serialVersionUID = 1L;

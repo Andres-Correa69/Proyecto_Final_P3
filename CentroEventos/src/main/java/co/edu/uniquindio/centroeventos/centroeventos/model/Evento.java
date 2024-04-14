@@ -1,25 +1,32 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Evento {
+public class Evento implements Serializable {
 
     //declaracion variables
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String nombre;
     private String descripcion;
-    private LocalDate fecha;
+    private String fecha;
     private Integer capacidadMax;
-    private String idEmpleadoEncargado;
-    private String idReserva;
+    private Empleado empleado;
+    private Reserva reserva;
 
     ArrayList<Empleado> listaEmpleadosEnAsociado = new ArrayList<Empleado>();
     ArrayList<Reserva> listaReservasAsociadas = new ArrayList<Reserva>();
 
     //constructor
-    public Evento() {
+
+    public Evento(){
+
+    }
+    public Evento(String id) {
+        this.id = id;
     }
 
     //getters y setters
@@ -48,11 +55,11 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -64,20 +71,20 @@ public class Evento {
         this.capacidadMax = capacidadMax;
     }
 
-    public String getIdEmpleadoEncargado() {
-        return idEmpleadoEncargado;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setIdEmpleadoEncargado(String idEmpleadoEncargado) {
-        this.idEmpleadoEncargado = idEmpleadoEncargado;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
-    public String getIdReserva() {
-        return idReserva;
+    public Reserva getReserva() {
+        return reserva;
     }
 
-    public void setIdReserva(String idReserva) {
-        this.idReserva = idReserva;
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 
     public ArrayList<Empleado> getListaEmpleadosEnAsociado() {

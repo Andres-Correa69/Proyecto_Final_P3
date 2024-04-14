@@ -1,18 +1,28 @@
 package co.edu.uniquindio.centroeventos.centroeventos.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario extends Persona{
+public class Usuario extends Persona implements Serializable {
 
     //declaracion de variables
 
+    private static final long serialVersionUID = 1L;
     private Reserva reserva;
     ArrayList<Reserva> listaReservasAsociado = new ArrayList<Reserva>();
 
 
     //contructor
-    public Usuario (){
+    public Usuario (){}
 
+
+    public Usuario(String id) {
+        super(id);
+        this.setId(id);
+
+    }
+    public Usuario(Reserva reserva){
+        this.reserva = reserva;
     }
 
 
@@ -28,6 +38,7 @@ public class Usuario extends Persona{
     }
 
     public Reserva getReserva() {
+
         return reserva;
     }
 

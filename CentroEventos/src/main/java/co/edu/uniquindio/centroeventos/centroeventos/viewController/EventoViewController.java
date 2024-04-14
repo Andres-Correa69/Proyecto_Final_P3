@@ -3,6 +3,8 @@ import co.edu.uniquindio.centroeventos.centroeventos.controller.EmpleadoControll
 import co.edu.uniquindio.centroeventos.centroeventos.controller.EventoController;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -106,8 +108,8 @@ public class EventoViewController {
         tcDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
         tcFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().fecha()));
         tcCapacidadMax.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().capacidadMax()));
-        tcEmpleadoEncargado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idEmpleadoEncargado()));
-        tcIdReservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idReserva()));
+        tcEmpleadoEncargado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().empleado().getId()));
+        tcIdReservas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().reserva().getId()));
     }
 
     private void obtenerEventos(){ listaEventosDto.addAll(eventoControllerService.obtenerEventos());}
@@ -126,8 +128,8 @@ public class EventoViewController {
             txtDescripcion.setText(eventoSeleccionado.descripcion());
             txtFecha.setValue(LocalDate.parse(eventoSeleccionado.fecha()));
             txtCapacidadMax.setText(eventoSeleccionado.capacidadMax());
-            txtEmpleadoEncargado.setText(eventoSeleccionado.idEmpleadoEncargado());
-            txtIdReserva.setText(eventoSeleccionado.idReserva());
+            txtEmpleadoEncargado.setText(eventoSeleccionado.empleado().getId());
+            txtIdReserva.setText(eventoSeleccionado.reserva().getId());
 
         }
     }
@@ -230,14 +232,20 @@ public class EventoViewController {
         if (fechaSeleccionada != null) {
             fecha = fechaSeleccionada.toString(); // Convertir la fecha seleccionada a una cadena
         }
+
+        String empleadoId = txtEmpleadoEncargado.getText();
+        Empleado empleado1 = new Empleado(empleadoId);
+
+        String reservaId = txtIdReserva.getId();
+        Reserva reserva1 = new Reserva(reservaId);
         return new EventoDto(
                 txtId.getText(),
                 txtNombre.getText(),
                 txtDescripcion.getText(),
                 fecha,
                 txtCapacidadMax.getText(),
-                txtEmpleadoEncargado.getText(),
-                txtIdReserva.getText());
+                empleado1,
+                reserva1);
 
     }
 
@@ -263,9 +271,9 @@ public class EventoViewController {
             mensaje += "la fecha es invalida \n";
         if (eventoDto.capacidadMax() == null || eventoDto.capacidadMax().equals(""))
             mensaje += "la capacidad maxima es invalida \n";
-        if (eventoDto.idEmpleadoEncargado() == null || eventoDto.idEmpleadoEncargado().equals(""))
+        if (eventoDto.empleado().getId() == null || eventoDto.empleado().getId().equals(""))
             mensaje += "los ID de los empleados son ivalidos \n";
-        if (eventoDto.idReserva() == null || eventoDto.idReserva().equals(""))
+        if (eventoDto.reserva().getId() == null || eventoDto.reserva().getId().equals(""))
             mensaje += "los ID de las reservas son invalidos \n";
         if(mensaje.equals("")){
             return true;

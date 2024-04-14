@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="21.0.2" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindio.centroeventos.centroeventos.model.CentroEventos" id="CentroEventos0">
+  <void property="listaEmpleados">
+   <void method="add">
+    <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Empleado">
+     <void property="correo">
+      <string>awdawd@gmail.com</string>
+     </void>
+     <void property="evento">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
+       <void property="id">
+        <string>10</string>
+       </void>
+      </object>
+     </void>
+     <void property="id">
+      <string>12345</string>
+     </void>
+     <void property="nombre">
+      <string>juan</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaEventos">
+   <void method="add">
+    <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
+     <void property="capacidadMax">
+      <int>1000</int>
+     </void>
+     <void property="descripcion">
+      <string>bandas de rock</string>
+     </void>
+     <void property="empleado">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Empleado">
+       <void property="id">
+        <string>12345</string>
+       </void>
+      </object>
+     </void>
+     <void property="fecha">
+      <string>2024-04-14</string>
+     </void>
+     <void property="id">
+      <string>10</string>
+     </void>
+     <void property="nombre">
+      <string>Concierto</string>
+     </void>
+     <void property="reserva">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Reserva">
+       <void property="id">
+        <string>4566</string>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaReservas">
+   <void method="add">
+    <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Reserva">
+     <void property="estadoReserva">
+      <object class="java.lang.Enum" method="valueOf">
+       <class>co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva</class>
+       <string>PENDIENTE</string>
+      </object>
+     </void>
+     <void property="evento">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
+       <void property="id">
+        <string>10</string>
+       </void>
+      </object>
+     </void>
+     <void property="fechaSolicitud">
+      <string>2024-04-14</string>
+     </void>
+     <void property="id">
+      <string>4566</string>
+     </void>
+     <void property="usuario">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario">
+       <void property="id">
+        <string>12345</string>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaUsuarios">
+   <void method="add">
+    <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario">
+     <void property="correo">
+      <string>alberto494@gmail.com</string>
+     </void>
+     <void property="id">
+      <string>12345</string>
+     </void>
+     <void property="nombre">
+      <string>alberto</string>
+     </void>
+     <void property="reserva">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Reserva">
+       <void property="id">
+        <string>4566</string>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

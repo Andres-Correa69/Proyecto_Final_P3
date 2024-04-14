@@ -13,17 +13,25 @@ public class CentroEvenUtils {
         empleado.setId("12345");
         empleado.setNombre("juan");
         empleado.setCorreo("awdawd@gmail.com");
-        empleado.setListaEventoAsigAsociados("12,13,14,15");
         centroEventos.getListaEmpleados().add(empleado);
 
 
+        //eventos utils
+        Evento evento = new Evento();
+        evento.setId("10");
+        evento.setNombre("Concierto");
+        evento.setDescripcion("bandas de rock");
+        evento.setFecha(LocalDate.now().toString());
+        evento.setCapacidadMax(1000);
+        evento.setEmpleado(empleado);
+
+        centroEventos.getListaEventos().add(evento);
         //reserva utils
 
         Reserva reserva = new Reserva();
         reserva.setId("4566");
-        reserva.setIdEvento("35");
-        reserva.setIdUsuario("65");
-        reserva.setFechaSolicitud(LocalDate.now());
+        reserva.setEvento(evento);
+        reserva.setFechaSolicitud(LocalDate.now().toString());
         reserva.setEstadoReserva(TipoEstadoReserva.PENDIENTE);
         centroEventos.getListaReservas().add(reserva);
 
@@ -36,16 +44,15 @@ public class CentroEvenUtils {
         usuario.setReserva(reserva);
         centroEventos.getListaUsuarios().add(usuario);
 
-        //eventos utils
-        Evento evento = new Evento();
-        evento.setId("10");
-        evento.setNombre("Concierto");
-        evento.setDescripcion("bandas de rock");
-        evento.setFecha(LocalDate.now());
-        evento.setCapacidadMax(1000);
-        evento.setIdEmpleadoEncargado("1133");
-        evento.setIdReserva("30");
-        centroEventos.getListaEventos().add(evento);
+        //asigno la reserva al evento
+        evento.setReserva(reserva);
+        //asigno el evento al empleado
+        empleado.setEvento(evento);
+
+    // Paso 4: Asignar el usuario a la reserva
+        reserva.setUsuario(usuario);
+
+
 
 
 

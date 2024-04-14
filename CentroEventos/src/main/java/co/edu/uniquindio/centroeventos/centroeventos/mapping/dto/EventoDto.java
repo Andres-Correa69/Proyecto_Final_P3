@@ -1,5 +1,8 @@
 package co.edu.uniquindio.centroeventos.centroeventos.mapping.dto;
 
+import co.edu.uniquindio.centroeventos.centroeventos.model.Empleado;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Reserva;
+
 import java.time.LocalDate;
 
 public record EventoDto(
@@ -9,7 +12,8 @@ public record EventoDto(
         String descripcion,
         String fecha,
         String capacidadMax,
-        String idEmpleadoEncargado,
-        String idReserva
+        Empleado empleado,
+        Reserva reserva
+
 ) {
 }

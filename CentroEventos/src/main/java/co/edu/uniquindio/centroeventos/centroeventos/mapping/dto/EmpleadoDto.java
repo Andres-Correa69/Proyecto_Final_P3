@@ -11,6 +11,9 @@ public record EmpleadoDto(
 
         String correo,
 
-        String listaEventoAsigAsociados)
+        Evento evento)
         {
-}
+
+
+
+        }

@@ -12,9 +12,16 @@ import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.centroeventos.centroeventos.model.*;
 import co.edu.uniquindio.centroeventos.centroeventos.utils.CentroEvenUtils;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.mappers.CentroEvenMapper;
+import co.edu.uniquindio.centroeventos.centroeventos.utils.Persistencia;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+
+
 
 public class ModelFactoryController implements IModelFactoryService {
 
@@ -35,8 +42,58 @@ public class ModelFactoryController implements IModelFactoryService {
 
     public ModelFactoryController(){
         System.out.println("invocacion clase singleton");
-        cargarDatosBase();
+        //guardarRespaldo();
+//        cargarDatosBase();
+//        salvarDatosPrueba();
+
+
+        //2. Cargar los datos de los archivos
+//        cargarDatosDesdeArchivos();
+
+        //3. Guardar y Cargar el recurso serializable binario
+        cargarResourceBinario();
+//        guardarResourceBinario();
+
+        //4. Guardar y Cargar el recurso serializable XML
+//        guardarResourceXML();
+        cargarResourceXML();
+
+        //Siempre se debe verificar si la raiz del recurso es null
+
+//        if(centroEventos == null){
+//            cargarDatosBase();
+//            guardarResourceXML();
+//        }
+        registrarAccionesSistema("Inicio de sesión", 1, "inicioSesión");
+
     }
+
+    private void guardarRespaldo(){
+        centroEventos = new CentroEventos();
+        Persistencia.guardarCopiaSeguridad();
+    }
+
+    private void cargarDatosDesdeArchivos() {
+        centroEventos = new CentroEventos();
+        try {
+            Persistencia.cargarDatosArchivos(centroEventos);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void salvarDatosPrueba() {
+        try {
+            Persistencia.guardarUsuarios(getCentroEventos().getListaUsuarios());
+            Persistencia.guardarReservas(getCentroEventos().getListaReservas());
+            Persistencia.guardarEventos(getCentroEventos().getListaEventos());
+            Persistencia.guardarEmpleados(getCentroEventos().getListaEmpleados());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     private void cargarDatosBase() {
         centroEventos = CentroEvenUtils.inicializarDatos();
     }
@@ -58,7 +115,7 @@ public class ModelFactoryController implements IModelFactoryService {
             if (!centroEventos.verificarEmpleadoExiste(empleadoDto.id())){
                 Empleado empleado = mapper.empleadoDtoToEmpleado(empleadoDto);
                 getCentroEventos().agregarEmpleado(empleado);
-
+                //guardar en xml
             }
             return true;
         }catch (EmpleadoException e){
@@ -91,7 +148,6 @@ public class ModelFactoryController implements IModelFactoryService {
 
     }
 
-
     //USUARIO
     @Override
     public List<UsuarioDto> obtenerUsuarios() {
@@ -104,7 +160,7 @@ public class ModelFactoryController implements IModelFactoryService {
             if (!centroEventos.verificarUsuarioExiste(usuarioDto.id())){
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getCentroEventos().agregarUsuario(usuario);
-
+                registrarAccionesSistema("Registro Usuario", 1, "usuario creado");
             }
             return true;
         }catch (UsuarioException e){
@@ -227,4 +283,25 @@ public class ModelFactoryController implements IModelFactoryService {
             return false;
         }
     }
+
+    private void cargarResourceXML() {
+        centroEventos = Persistencia.cargarRecursoCentroEventosXML();
+    }
+
+    private void guardarResourceXML() {
+        Persistencia.guardarRecursoCentroEventosXML(centroEventos);
+    }
+
+    private void cargarResourceBinario() {
+        centroEventos = Persistencia.cargarRecursoCentroEventosBinario();
+    }
+
+    private void guardarResourceBinario() {
+        Persistencia.guardarRecursoCentroEventosBinario(centroEventos);
+    }
+
+    public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
+        Persistencia.guardaRegistroLog(mensaje, nivel, accion);
+    }
+
 }

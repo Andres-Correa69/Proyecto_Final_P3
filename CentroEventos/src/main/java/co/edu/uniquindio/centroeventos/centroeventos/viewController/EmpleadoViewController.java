@@ -2,6 +2,8 @@ package co.edu.uniquindio.centroeventos.centroeventos.viewController;
 
 import co.edu.uniquindio.centroeventos.centroeventos.controller.EmpleadoController;
 import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.mapping.dto.EventoDto;
+import co.edu.uniquindio.centroeventos.centroeventos.model.Evento;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,10 +81,12 @@ public class EmpleadoViewController {
     }
 
     private void initDataBinding(){
+
         tcId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().id()));
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
         tcCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().correo()));
-        tcListaEventosAsig.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().listaEventoAsigAsociados()));
+        tcListaEventosAsig.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().evento().getId()));
+
 
     }
 
@@ -100,7 +104,7 @@ public class EmpleadoViewController {
             txtId.setText(empleadoSeleccionado.id());
             txtNombre.setText(empleadoSeleccionado.nombre());
             txtCorreo.setText(empleadoSeleccionado.correo());
-            txtListaEventosAsig.setText(empleadoSeleccionado.listaEventoAsigAsociados());
+            txtListaEventosAsig.setText(empleadoSeleccionado.evento().getId());
         }
     }
 
@@ -190,11 +194,14 @@ public class EmpleadoViewController {
     }
 
     private EmpleadoDto construirEmpleadoDto() {
+
+        String eventoId = txtListaEventosAsig.getText();
+        Evento evento1 = new Evento(eventoId);
         return new EmpleadoDto(
                 txtId.getText(),
                 txtNombre.getText(),
                 txtCorreo.getText(),
-                txtListaEventosAsig.getText());
+                evento1);
     }
 
     private void limpiarCamposEmpleado() {
@@ -212,7 +219,7 @@ public class EmpleadoViewController {
             mensaje += "El id es invalido \n";
         if (empleadoDto.correo() == null || empleadoDto.correo().equals(""))
             mensaje += "El correo es invalido \n";
-        if (empleadoDto.listaEventoAsigAsociados() == null || empleadoDto.listaEventoAsigAsociados().equals(""))
+        if (empleadoDto.evento().getId() == null || empleadoDto.evento().getId().equals(""))
             mensaje += "Los eventos asignados son invalidos \n";
         if(mensaje.equals("")){
             return true;
