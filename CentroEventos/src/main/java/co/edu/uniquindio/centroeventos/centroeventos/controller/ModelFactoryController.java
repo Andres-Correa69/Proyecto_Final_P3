@@ -42,21 +42,22 @@ public class ModelFactoryController implements IModelFactoryService {
 
     public ModelFactoryController(){
         System.out.println("invocacion clase singleton");
-        //guardarRespaldo();
-//        cargarDatosBase();
-//        salvarDatosPrueba();
+        guardarRespaldo();
+//          cargarDatosBase();
+//          salvarDatosPrueba();
+
 
 
         //2. Cargar los datos de los archivos
 //        cargarDatosDesdeArchivos();
 
         //3. Guardar y Cargar el recurso serializable binario
-        cargarResourceBinario();
+//        cargarResourceBinario();
 //        guardarResourceBinario();
 
         //4. Guardar y Cargar el recurso serializable XML
 //        guardarResourceXML();
-        cargarResourceXML();
+          cargarResourceXML();
 
         //Siempre se debe verificar si la raiz del recurso es null
 
@@ -64,14 +65,16 @@ public class ModelFactoryController implements IModelFactoryService {
 //            cargarDatosBase();
 //            guardarResourceXML();
 //        }
+
         registrarAccionesSistema("Inicio de sesión", 1, "inicioSesión");
-
+        Runtime.getRuntime().addShutdownHook(new Thread(Persistencia::guardarCopiaSeguridad));
     }
-
     private void guardarRespaldo(){
         centroEventos = new CentroEventos();
         Persistencia.guardarCopiaSeguridad();
     }
+
+
 
     private void cargarDatosDesdeArchivos() {
         centroEventos = new CentroEventos();
@@ -98,6 +101,41 @@ public class ModelFactoryController implements IModelFactoryService {
         centroEventos = CentroEvenUtils.inicializarDatos();
     }
 
+    private void guardarDatosUsuarios(){
+        try{
+            Persistencia.guardarUsuarios(getCentroEventos().getListaUsuarios());
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void guardarDatosEmpleados(){
+        try{
+            Persistencia.guardarEmpleados(getCentroEventos().getListaEmpleados());
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void guardarDatosEventos(){
+        try{
+            Persistencia.guardarEventos(getCentroEventos().getListaEventos());
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void guardarDatosReservas(){
+        try{
+            Persistencia.guardarReservas(getCentroEventos().getListaReservas());
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
     public CentroEventos getCentroEventos() {return centroEventos;}
 
     public void setCentroEventos(CentroEventos centroEventos) {this.centroEventos = centroEventos;}
@@ -115,11 +153,17 @@ public class ModelFactoryController implements IModelFactoryService {
             if (!centroEventos.verificarEmpleadoExiste(empleadoDto.id())){
                 Empleado empleado = mapper.empleadoDtoToEmpleado(empleadoDto);
                 getCentroEventos().agregarEmpleado(empleado);
-                //guardar en xml
+
+
             }
+            Persistencia.guardaRegistroLog("Agregar empleado", 1, "se agrego un empleado");
+            guardarDatosEmpleados();
+            guardarResourceXML();
+            guardarResourceBinario();
             return true;
         }catch (EmpleadoException e){
             e.getMessage();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al agregar el empleado");
             return false;
         }
     }
@@ -129,8 +173,14 @@ public class ModelFactoryController implements IModelFactoryService {
         boolean flagExiste = false;
         try{
             flagExiste = getCentroEventos().eliminarEmpleado(id);
+            guardarDatosEmpleados();
+            guardarResourceXML();
+            guardarResourceBinario();
+            Persistencia.guardaRegistroLog("Eliminar empleado", 1, "se elimino el empleado" );
         }catch (EmpleadoException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al eliminar el empleado");
+
         }
         return flagExiste;
     }
@@ -140,9 +190,14 @@ public class ModelFactoryController implements IModelFactoryService {
         try{
             Empleado empleado = mapper.empleadoDtoToEmpleado(empleadoDto);
             getCentroEventos().actualizarEmpleado(idActual, empleado);
+            guardarDatosEmpleados();
+            guardarResourceXML();
+            guardarResourceBinario();
+            Persistencia.guardaRegistroLog("Actualizar empleado",  1 ,  "se actualizo el empleado");
             return true;
         }catch (EmpleadoException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al actualizar empleado");
             return false;
         }
 
@@ -154,28 +209,39 @@ public class ModelFactoryController implements IModelFactoryService {
         return mapper.getUsuarioDto(centroEventos.getListaUsuarios());
     }
 
+
     @Override
     public boolean agregarUsuario(UsuarioDto usuarioDto) {
         try{
             if (!centroEventos.verificarUsuarioExiste(usuarioDto.id())){
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getCentroEventos().agregarUsuario(usuario);
-                registrarAccionesSistema("Registro Usuario", 1, "usuario creado");
+
             }
+            Persistencia.guardaRegistroLog("Agregar usuario", 1, "se agrego un usuario");
+            guardarDatosUsuarios();
+            guardarResourceXML();
+            guardarResourceBinario();
+
             return true;
         }catch (UsuarioException e){
             e.getMessage();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al agregar usuario");
             return false;
         }
     }
-
     @Override
     public boolean eliminarUsuarios(String id) {
         boolean flagExiste = false;
         try{
             flagExiste = getCentroEventos().eliminarUsuario(id);
+            guardarDatosUsuarios();
+            guardarResourceXML();
+            guardarResourceBinario();
+            Persistencia.guardaRegistroLog("Eliminar usuario", 1, "se elimina al usuario");
         }catch (UsuarioException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al eliminar al usuario" );
         }
         return flagExiste;
     }
@@ -185,9 +251,14 @@ public class ModelFactoryController implements IModelFactoryService {
         try{
             Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
             getCentroEventos().actualizarUsuario(idActual, usuario);
+            guardarDatosUsuarios();
+            guardarResourceXML();
+            guardarResourceBinario();
+            Persistencia.guardaRegistroLog("Actualizar usuario", 1, "se actualizo la informacion del usuario");
             return true;
         }catch (UsuarioException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al actualizar el usuario");
             return false;
         }
     }
@@ -208,9 +279,14 @@ public class ModelFactoryController implements IModelFactoryService {
                 getCentroEventos().agregarEvento(evento);
 
             }
+            Persistencia.guardaRegistroLog("Agregar evento", 1, "se agrego el evento");
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosEventos();
             return true;
         }catch (EventoException e){
             e.getMessage();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al agregar evento");
             return false;
         }
     }
@@ -220,8 +296,13 @@ public class ModelFactoryController implements IModelFactoryService {
         boolean flagExiste = false;
         try{
             flagExiste = getCentroEventos().eliminarEvento(id);
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosEventos();
+            Persistencia.guardaRegistroLog("Eliminar evento", 1 , "se elimino un evento");
         }catch (EventoException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3 , "fallo al eliminar evento");
         }
         return flagExiste;
     }
@@ -231,9 +312,14 @@ public class ModelFactoryController implements IModelFactoryService {
         try{
             Evento evento = mapper.eventoDtoToEvento(eventoDto);
             getCentroEventos().actualizarEvento(idActual, evento);
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosEventos();
+            Persistencia.guardaRegistroLog("Actualizar evento", 1, "se actualizo el evento");
             return true;
         }catch (EventoException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al actualizar el evento");
             return false;
         }
     }
@@ -254,9 +340,14 @@ public class ModelFactoryController implements IModelFactoryService {
                 getCentroEventos().agregarReserva(reserva);
 
             }
+            Persistencia.guardaRegistroLog("Agregar reserva", 1 , "se agrego la reserva");
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosReservas();
             return true;
         }catch (ReservaException e){
             e.getMessage();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al agregar reserva");
             return false;
         }
     }
@@ -266,8 +357,13 @@ public class ModelFactoryController implements IModelFactoryService {
         boolean flagExiste = false;
         try{
             flagExiste = getCentroEventos().eliminarReserva(id);
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosReservas();
+            Persistencia.guardaRegistroLog("Eliminar reserva", 1, "se elimino la reserva");
         }catch (ReservaException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al eliminar reserva");
         }
         return flagExiste;
     }
@@ -277,9 +373,14 @@ public class ModelFactoryController implements IModelFactoryService {
         try{
             Reserva reserva = mapper.reservaDtoToReserva(reservaDto);
             getCentroEventos().actualizarReserva(idActual, reserva);
+            guardarResourceXML();
+            guardarResourceBinario();
+            guardarDatosReservas();
+            Persistencia.guardaRegistroLog("Actualizar reserva", 1 , "se actualizo la reserva");
             return true;
         }catch (ReservaException e){
             e.printStackTrace();
+            Persistencia.guardaRegistroLog(e.getMessage(), 3, "fallo al agregar la reserva");
             return false;
         }
     }

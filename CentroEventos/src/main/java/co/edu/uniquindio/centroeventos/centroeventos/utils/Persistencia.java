@@ -229,7 +229,7 @@ public class Persistencia {
 
     //-----------SERIALIZACION Y XML
 
-    public static void guardarCopiaSeguridad(){
+    public static void guardarCopiaSeguridad() {
         try {
             // Convertir las rutas de cadena a objetos de Path
             Path archivoEmpleados = Paths.get(RUTA_ARCHIVO_EMPLEADO);
@@ -239,14 +239,19 @@ public class Persistencia {
             Path archivoReservas = Paths.get(RUTA_ARCHIVO_RESERVA);
             Path archivoRespaldoReservas = Paths.get(RUTA_RESPALDO_ARCHIVO_RESERVAS);
             Path archivoEventos = Paths.get(RUTA_ARCHIVO_EVENTO);
-            Path archivosRespaldoEventos = Paths.get(RUTA_RESPALDO_ARCHIVO_EVENTOS);
+            Path archivoRespaldoEventos = Paths.get(RUTA_RESPALDO_ARCHIVO_EVENTOS);
 
+            // Verificar si los archivos de respaldo existen y eliminarlos si es así
+            if (Files.exists(archivoRespaldo)) Files.delete(archivoRespaldo);
+            if (Files.exists(archivoRespaldoUsuarios)) Files.delete(archivoRespaldoUsuarios);
+            if (Files.exists(archivoRespaldoReservas)) Files.delete(archivoRespaldoReservas);
+            if (Files.exists(archivoRespaldoEventos)) Files.delete(archivoRespaldoEventos);
 
             // Copiar el archivo
             Files.copy(archivoEmpleados, archivoRespaldo);
             Files.copy(archivoUsuarios, archivoRespaldoUsuarios);
             Files.copy(archivoReservas, archivoRespaldoReservas);
-            Files.copy(archivoEventos, archivosRespaldoEventos);
+            Files.copy(archivoEventos, archivoRespaldoEventos);
 
             System.out.println("¡Copia de seguridad creada exitosamente!");
         } catch (IOException e) {
@@ -289,7 +294,6 @@ public class Persistencia {
     public static void guardarRecursoCentroEventosXML(CentroEventos centroEventos){
         try {
 
-            System.out.println(centroEventos.getListaEventos());
             ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CENTROEVENTOS_XML, centroEventos);
         } catch (Exception e){
             e.printStackTrace();
