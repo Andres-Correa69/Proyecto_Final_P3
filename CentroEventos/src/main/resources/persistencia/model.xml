@@ -18,7 +18,7 @@
       <string>12345</string>
      </void>
      <void property="nombre">
-      <string>juan</string>
+      <string>pedroffgfgf</string>
      </void>
     </object>
    </void>
@@ -40,7 +40,7 @@
       </object>
      </void>
      <void property="fecha">
-      <string>2024-04-14</string>
+      <string>2024-04-15</string>
      </void>
      <void property="id">
       <string>10</string>
@@ -75,7 +75,7 @@
       </object>
      </void>
      <void property="fechaSolicitud">
-      <string>2024-04-14</string>
+      <string>2024-04-15</string>
      </void>
      <void property="id">
       <string>4566</string>

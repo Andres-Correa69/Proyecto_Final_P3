@@ -1,0 +1,44 @@
+abr 15, 2024 11:06:20 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-15
+abr 15, 2024 11:06:56 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-15
+abr 15, 2024 11:09:33 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-15
+abr 23, 2024 7:35:17 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-23
+abr 23, 2024 7:36:17 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo el empleado,Actualizar empleado,2024-04-23
+abr 23, 2024 7:36:34 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-23
+abr 23, 2024 7:36:56 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo el empleado,Actualizar empleado,2024-04-23
+abr 23, 2024 7:41:53 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-23
+abr 25, 2024 2:46:40 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-04-25
+may 13, 2024 4:02:01 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:42:24 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:43:49 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:46:12 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:46:57 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:47:21 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:48:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:49:13 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:49:31 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 4:51:20 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se agrego un usuario,Agregar usuario,2024-05-13
+may 13, 2024 4:51:27 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+SEVERE: fallo al agregar usuario,El usuario con cedula: dwad ya existe,2024-05-13
+may 13, 2024 4:51:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la informacion del usuario,Actualizar usuario,2024-05-13
+may 13, 2024 4:51:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se elimina al usuario,Eliminar usuario,2024-05-13

@@ -23,11 +23,24 @@ import java.util.List;
 
 
 
-public class ModelFactoryController implements IModelFactoryService {
+public class ModelFactoryController implements IModelFactoryService, Runnable {
 
     CentroEventos centroEventos;
 
+    Thread hilo1GuardarXml;
+    Thread hilo2GuardarBinario;
+    Thread hilo3GuardarDatosUsuario;
+    Thread hilo4GuardarDatosEmpleado;
+    Thread hilo5GuardarDatosReserva;
+    Thread hilo6GuardarDatosEvento;
+    String mensaje = "";
+    int nivel = 0;
+    String accion = "";
+    BoundedSemaphore semaphore = new BoundedSemaphore(1);
+
     CentroEvenMapper mapper = CentroEvenMapper.INSTANCE;
+
+
 
     //------------------------------  Singleton ------------------------------------------------
     // Clase estatica oculta. Tan solo se instanciara el singleton una vez
@@ -42,18 +55,19 @@ public class ModelFactoryController implements IModelFactoryService {
 
     public ModelFactoryController(){
         System.out.println("invocacion clase singleton");
+        //3
         guardarRespaldo();
-//          cargarDatosBase();
-//          salvarDatosPrueba();
+//        cargarDatosBase();
+//        salvarDatosPrueba();
 
 
 
         //2. Cargar los datos de los archivos
-//        cargarDatosDesdeArchivos();
+        // cargarDatosDesdeArchivos();
 
         //3. Guardar y Cargar el recurso serializable binario
 //        cargarResourceBinario();
-//        guardarResourceBinario();
+       // guardarResourceBinario();
 
         //4. Guardar y Cargar el recurso serializable XML
 //        guardarResourceXML();
@@ -99,39 +113,6 @@ public class ModelFactoryController implements IModelFactoryService {
 
     private void cargarDatosBase() {
         centroEventos = CentroEvenUtils.inicializarDatos();
-    }
-
-    private void guardarDatosUsuarios(){
-        try{
-            Persistencia.guardarUsuarios(getCentroEventos().getListaUsuarios());
-        }catch(IOException e){
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    private void guardarDatosEmpleados(){
-        try{
-            Persistencia.guardarEmpleados(getCentroEventos().getListaEmpleados());
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void guardarDatosEventos(){
-        try{
-            Persistencia.guardarEventos(getCentroEventos().getListaEventos());
-        }catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void guardarDatosReservas(){
-        try{
-            Persistencia.guardarReservas(getCentroEventos().getListaReservas());
-        }catch(IOException e){
-            throw new RuntimeException(e);
-        }
     }
 
 
@@ -390,7 +371,8 @@ public class ModelFactoryController implements IModelFactoryService {
     }
 
     private void guardarResourceXML() {
-        Persistencia.guardarRecursoCentroEventosXML(centroEventos);
+        hilo1GuardarXml = new Thread(this);
+        hilo1GuardarXml.start();
     }
 
     private void cargarResourceBinario() {
@@ -398,11 +380,104 @@ public class ModelFactoryController implements IModelFactoryService {
     }
 
     private void guardarResourceBinario() {
-        Persistencia.guardarRecursoCentroEventosBinario(centroEventos);
+        hilo2GuardarBinario = new Thread(this);
+        hilo2GuardarBinario.start();
+
     }
+
+    private void guardarDatosUsuarios(){
+        hilo3GuardarDatosUsuario = new Thread(this);
+        hilo3GuardarDatosUsuario.start();
+//            Persistencia.guardarUsuarios(getCentroEventos().getListaUsuarios());
+
+    }
+
+    private void guardarDatosEmpleados(){
+        hilo4GuardarDatosEmpleado = new Thread(this);
+        hilo4GuardarDatosEmpleado.start();
+
+    }
+
+    private void guardarDatosEventos(){
+        hilo6GuardarDatosEvento = new Thread(this);
+        hilo6GuardarDatosEvento.start();
+
+    }
+
+    private void guardarDatosReservas(){
+        hilo5GuardarDatosReserva = new Thread(this);
+        hilo5GuardarDatosReserva.start();
+
+    }
+
+
 
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
         Persistencia.guardaRegistroLog(mensaje, nivel, accion);
+    }
+
+    @Override
+    public void run() {
+        Thread hiloActual = Thread.currentThread();
+        ocupar();
+        if(hiloActual == hilo1GuardarXml){
+            Persistencia.guardarRecursoCentroEventosXML(centroEventos);
+            liberar();
+        }
+        if(hiloActual == hilo2GuardarBinario){
+            Persistencia.guardarRecursoCentroEventosBinario(centroEventos);
+            liberar();
+        }
+        if(hiloActual == hilo3GuardarDatosUsuario){
+            try {
+                Persistencia.guardarUsuarios(getCentroEventos().getListaUsuarios());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            liberar();
+        }
+        if(hiloActual == hilo4GuardarDatosEmpleado){
+            try{
+                Persistencia.guardarEmpleados(getCentroEventos().getListaEmpleados());
+            }catch (IOException e){
+                throw new RuntimeException(e);
+            }
+            liberar();
+        }
+       if(hiloActual == hilo6GuardarDatosEvento){
+           try{
+               Persistencia.guardarEventos(getCentroEventos().getListaEventos());
+           }catch (IOException e){
+               throw new RuntimeException(e);
+           }
+           liberar();
+       }
+       if(hiloActual == hilo5GuardarDatosReserva){
+           try{
+               Persistencia.guardarReservas(getCentroEventos().getListaReservas());
+           }catch(IOException e){
+               throw new RuntimeException(e);
+           }
+           liberar();
+       }
+
+    }
+
+
+    private void liberar() {
+        try {
+            semaphore.liberar();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void ocupar() {
+        try {
+            semaphore.ocupar();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
