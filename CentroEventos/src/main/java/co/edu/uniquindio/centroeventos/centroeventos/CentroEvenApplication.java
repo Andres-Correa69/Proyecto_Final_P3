@@ -18,7 +18,20 @@ public class CentroEvenApplication extends Application {
     public void start(Stage stage) throws Exception {
         this.primaryStage = stage;
         this.primaryStage.setTitle("Centro Eventos");
-        mostrarVentanaPrincipal();
+
+        LoginUI loginUI = new LoginUI();
+        loginUI.mostrar();
+
+
+        // Verificar la autenticación y cargar la interfaz de asignación de materias si es exitosa
+        if (loginUI.autenticacionExitosa()) {
+            mostrarVentanaPrincipal();
+        } else {
+            System.out.println("La autenticación falló. La aplicación se cerrará.");
+            stage.close();
+        }
+
+
 
     }
 
@@ -39,7 +52,10 @@ public class CentroEvenApplication extends Application {
         }
     }
     public static void main(String[] args) {
-        launch();
+
+        launch(args);
     }
+
 }
+
 

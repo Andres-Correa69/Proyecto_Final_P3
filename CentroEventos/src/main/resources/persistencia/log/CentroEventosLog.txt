@@ -42,3 +42,39 @@ may 13, 2024 4:51:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils
 INFO: se actualizo la informacion del usuario,Actualizar usuario,2024-05-13
 may 13, 2024 4:51:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
 INFO: se elimina al usuario,Eliminar usuario,2024-05-13
+may 13, 2024 5:01:47 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 5:11:07 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 5:14:01 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:38:59 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:43:03 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:43:50 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:45:09 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:45:49 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:48:59 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:50:19 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:55:31 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:56:06 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 6:58:17 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 7:10:56 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 7:27:51 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 7:53:18 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 8:03:38 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 8:10:57 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
