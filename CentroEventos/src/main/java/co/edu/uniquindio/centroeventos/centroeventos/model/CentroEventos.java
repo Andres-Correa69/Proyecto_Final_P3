@@ -357,6 +357,7 @@ public class CentroEventos implements ICentroEventosService, Serializable {
             throw new ReservaException("La reserva a actualizar no existe");
         } else {
             reservaActual.setId(reserva.getId());
+            reservaActual.setEstadoReserva(reserva.getEstadoReserva());
             return true;
         }
     }

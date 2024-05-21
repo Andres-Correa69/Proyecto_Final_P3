@@ -78,3 +78,205 @@ may 13, 2024 8:03:38 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils
 INFO: inicioSesión,Inicio de sesión,2024-05-13
 may 13, 2024 8:10:57 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
 INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 13, 2024 8:18:51 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-13
+may 14, 2024 5:32:54 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 6:24:02 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 6:24:12 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se agrego un usuario,Agregar usuario,2024-05-14
+may 14, 2024 6:24:19 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se elimina al usuario,Eliminar usuario,2024-05-14
+may 14, 2024 6:25:07 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-14
+may 14, 2024 6:25:23 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 7:00:08 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 7:16:00 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 7:19:39 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 7:21:57 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 8:55:23 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 9:10:43 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 9:14:32 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 9:19:57 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 14, 2024 9:21:35 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-14
+may 16, 2024 4:20:26 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:22:54 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:26:40 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:27:45 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:33:41 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:37:00 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:44:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:52:13 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 4:54:10 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 6:34:55 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 6:42:15 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo,entro el usuario: 321,2024-05-16
+may 16, 2024 6:42:16 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 6:43:48 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo,entro el usuario: 123,2024-05-16
+may 16, 2024 6:44:15 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo:  usuario,entro el usuario: 123,2024-05-16
+may 16, 2024 6:44:15 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 6:46:03 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-16
+may 16, 2024 6:46:03 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 6:47:06 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se agrego la reserva,Agregar reserva,2024-05-16
+may 16, 2024 6:47:41 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 6:47:51 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se elimino la reserva,Eliminar reserva,2024-05-16
+may 16, 2024 6:50:35 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-16
+may 16, 2024 6:50:35 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 7:47:53 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado esteban,2024-05-16
+may 16, 2024 7:47:53 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 7:49:33 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se agrego un empleado,Agregar empleado,2024-05-16
+may 16, 2024 7:50:21 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 7:50:22 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 7:50:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se elimino el empleado,Eliminar empleado,2024-05-16
+may 16, 2024 7:50:50 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-16
+may 16, 2024 8:12:05 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario marcela,2024-05-16
+may 16, 2024 8:12:05 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:12:33 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:12:40 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:12:56 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario marcela,2024-05-16
+may 16, 2024 8:18:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:18:30 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:18:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:20:31 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:20:32 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:20:42 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:21:34 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:21:47 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:21:52 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:22:05 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se agrego la reserva,Agregar reserva,2024-05-16
+may 16, 2024 8:22:11 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:22:18 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:23:25 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:23:26 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:23:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se elimino la reserva,Eliminar reserva,2024-05-16
+may 16, 2024 8:24:02 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:24:03 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:24:12 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:26:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:26:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:26:41 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la informacion del usuario,Actualizar usuario,2024-05-16
+may 16, 2024 8:26:50 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo el empleado,Actualizar empleado,2024-05-16
+may 16, 2024 8:26:59 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo el evento,Actualizar evento,2024-05-16
+may 16, 2024 8:27:51 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo el evento,Actualizar evento,2024-05-16
+may 16, 2024 8:29:19 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:29:35 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 8:32:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-16
+may 16, 2024 8:32:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 16, 2024 8:32:51 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-16
+may 16, 2024 9:20:22 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-16
+may 16, 2024 9:20:23 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-16
+may 20, 2024 3:58:49 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario mariana,2024-05-20
+may 20, 2024 3:59:04 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario mariana,2024-05-20
+may 20, 2024 4:00:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-20
+may 20, 2024 4:00:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-20
+may 20, 2024 4:00:58 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario mariana,2024-05-20
+may 20, 2024 5:23:35 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-20
+may 20, 2024 5:23:36 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-20
+may 20, 2024 5:23:54 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-20
+may 20, 2024 5:24:59 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-20
+may 20, 2024 5:25:00 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-20
+may 20, 2024 5:26:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-20
+may 20, 2024 5:26:37 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-20
+may 20, 2024 5:27:21 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-20
+may 21, 2024 3:31:02 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-21
+may 21, 2024 3:31:03 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 3:31:21 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-21
+may 21, 2024 3:31:42 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  empleado,entro el  empleado 321,2024-05-21
+may 21, 2024 3:31:48 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-21
+may 21, 2024 3:32:10 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: Se logeo un  usuario,entro el  usuario 123,2024-05-21
+may 21, 2024 3:32:21 P. M. co.edu.uniquindio.centroeventos.centroeventos.utils.ArchivoUtil guardarRegistroLog
+INFO: se actualizo la reserva,Actualizar reserva,2024-05-21

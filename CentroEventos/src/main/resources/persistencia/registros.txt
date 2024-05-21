@@ -1,0 +1,7 @@
+andres,contrasela,empleado
+ivan,1234,usuario
+123,123,usuario
+321,321,empleado
+mariana,Mariana2002,usuario
+esteban,12345,empleado
+marcela,12345,usuario
