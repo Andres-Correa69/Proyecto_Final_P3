@@ -68,9 +68,9 @@
       </object>
      </void>
      <void property="evento">
-      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento" id="Evento0">
        <void property="id">
-        <string>10</string>
+        <string>233</string>
        </void>
       </object>
      </void>
@@ -81,9 +81,9 @@
       <string>4566</string>
      </void>
      <void property="usuario">
-      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario" id="Usuario0">
        <void property="id">
-        <string>12345</string>
+        <string>233</string>
        </void>
       </object>
      </void>
@@ -98,11 +98,7 @@
       </object>
      </void>
      <void property="evento">
-      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
-       <void property="id">
-        <string>233</string>
-       </void>
-      </object>
+      <object idref="Evento0"/>
      </void>
      <void property="fechaSolicitud">
       <string>2024-05-02</string>
@@ -111,11 +107,7 @@
       <string>345</string>
      </void>
      <void property="usuario">
-      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario">
-       <void property="id">
-        <string>233</string>
-       </void>
-      </object>
+      <object idref="Usuario0"/>
      </void>
     </object>
    </void>
@@ -135,7 +127,7 @@
      <void property="reserva">
       <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Reserva">
        <void property="id">
-        <string>4566</string>
+        <string>34</string>
        </void>
       </object>
      </void>

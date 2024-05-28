@@ -5,3 +5,4 @@ ivan,1234,usuario
 mariana,Mariana2002,usuario
 esteban,12345,empleado
 marcela,12345,usuario
+usuario,usuario,usuario
