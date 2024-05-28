@@ -19,6 +19,7 @@ public class Persistencia {
     public static final String RUTA_ARCHIVO_EVENTO = "CentroEventos/src/main/resources/persistencia/archivoEvento.txt";
     public static final String RUTA_ARCHIVO_EMPLEADO ="CentroEventos/src/main/resources/persistencia/archivoEmpleado.txt";
     public static final String RUTA_ARCHIVO_LOG = "CentroEventos/src/main/resources/persistencia/log/CentroEventosLog.txt";
+    public static final String RUTA_ARCHIVO_RESERVACSV = "CentroEventos/src/main/resources/persistencia/archivoReserva.csv";
     public static final String RUTA_ARCHIVO_MODELO_CENTROEVENTOS_BINARIO = "CentroEventos/src/main/resources/persistencia/model.dat";
     public static final String RUTA_ARCHIVO_MODELO_CENTROEVENTOS_XML = "CentroEventos/src/main/resources/persistencia/model.xml";
     public static final String RUTA_RESPALDO_ARCHIVO_EMPLEADOS ="CentroEventos/src/main/resources/persistencia/respaldo/respladoEmpleados.txt";
@@ -68,6 +69,19 @@ public class Persistencia {
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_RESERVA, contenido, false);
     }
+
+    public static void guardarReservasCSV(ArrayList<Reserva> listaReservas) throws IOException {
+        StringBuilder contenido = new StringBuilder();
+        for (Reserva reserva : listaReservas) {
+            contenido.append(reserva.getId()).append(",")
+                    .append(reserva.getUsuario().getId()).append(",")
+                    .append(reserva.getEvento().getId()).append(",")
+                    .append(reserva.getFechaSolicitud()).append(",")
+                    .append(reserva.getEstadoReserva()).append("\n");
+        }
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_RESERVACSV, contenido.toString(), false);
+    }
+
 
     public  static void guardarEventos(ArrayList<Evento> listaEventos)throws IOException{
         String contenido = "";

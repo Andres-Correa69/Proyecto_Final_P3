@@ -33,6 +33,9 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
     Thread hilo4GuardarDatosEmpleado;
     Thread hilo5GuardarDatosReserva;
     Thread hilo6GuardarDatosEvento;
+    Thread hilo7CargarSerializadoBinario;
+    Thread hilo8CargarSerializadoXML;
+    Thread hilo9guardarReservasCSV;
     String mensaje = "";
     int nivel = 0;
     String accion = "";
@@ -63,11 +66,11 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
 
 
         //2. Cargar los datos de los archivos
-        // cargarDatosDesdeArchivos();
+//         cargarDatosDesdeArchivos();
 
         //3. Guardar y Cargar el recurso serializable binario
 //        cargarResourceBinario();
-       // guardarResourceBinario();
+//        guardarResourceBinario();
 
         //4. Guardar y Cargar el recurso serializable XML
 //        guardarResourceXML();
@@ -325,6 +328,7 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
             guardarResourceXML();
             guardarResourceBinario();
             guardarDatosReservas();
+            guardarArchivoReservasCSV();
             return true;
         }catch (ReservaException e){
             e.getMessage();
@@ -341,6 +345,7 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
             guardarResourceXML();
             guardarResourceBinario();
             guardarDatosReservas();
+            guardarArchivoReservasCSV();
             Persistencia.guardaRegistroLog("Eliminar reserva", 1, "se elimino la reserva");
         }catch (ReservaException e){
             e.printStackTrace();
@@ -357,6 +362,7 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
             guardarResourceXML();
             guardarResourceBinario();
             guardarDatosReservas();
+            guardarArchivoReservasCSV();
             Persistencia.guardaRegistroLog("Actualizar reserva", 1 , "se actualizo la reserva");
             return true;
         }catch (ReservaException e){
@@ -367,6 +373,8 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
     }
 
     private void cargarResourceXML() {
+//        hilo8CargarSerializadoXML = new Thread(this);
+//        hilo8CargarSerializadoXML.start();
         centroEventos = Persistencia.cargarRecursoCentroEventosXML();
     }
 
@@ -376,6 +384,8 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
     }
 
     private void cargarResourceBinario() {
+//        hilo7CargarSerializadoBinario = new Thread(this);
+//        hilo7CargarSerializadoBinario.start();
         centroEventos = Persistencia.cargarRecursoCentroEventosBinario();
     }
 
@@ -410,6 +420,11 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
 
     }
 
+    private void guardarArchivoReservasCSV(){
+        hilo9guardarReservasCSV = new Thread(this);
+        hilo9guardarReservasCSV.start();
+    }
+
 
 
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
@@ -420,6 +435,7 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
     public void run() {
         Thread hiloActual = Thread.currentThread();
         ocupar();
+
         if(hiloActual == hilo1GuardarXml){
             Persistencia.guardarRecursoCentroEventosXML(centroEventos);
             liberar();
@@ -460,6 +476,22 @@ public class ModelFactoryController implements IModelFactoryService, Runnable {
            }
            liberar();
        }
+       if(hiloActual == hilo7CargarSerializadoBinario){
+           Persistencia.cargarRecursoCentroEventosBinario();
+           liberar();
+       }
+        if(hiloActual == hilo8CargarSerializadoXML){
+            centroEventos = Persistencia.cargarRecursoCentroEventosXML();
+            liberar();
+        }
+        if(hiloActual == hilo9guardarReservasCSV){
+            try {
+                Persistencia.guardarReservasCSV(getCentroEventos().getListaReservas());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 
     }
 

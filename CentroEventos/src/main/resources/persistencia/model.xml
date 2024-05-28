@@ -89,6 +89,36 @@
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Reserva">
+     <void property="estadoReserva">
+      <object class="java.lang.Enum" method="valueOf">
+       <class>co.edu.uniquindio.centroeventos.centroeventos.model.TipoEstadoReserva</class>
+       <string>APROBADO</string>
+      </object>
+     </void>
+     <void property="evento">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Evento">
+       <void property="id">
+        <string>233</string>
+       </void>
+      </object>
+     </void>
+     <void property="fechaSolicitud">
+      <string>2024-05-02</string>
+     </void>
+     <void property="id">
+      <string>345</string>
+     </void>
+     <void property="usuario">
+      <object class="co.edu.uniquindio.centroeventos.centroeventos.model.Usuario">
+       <void property="id">
+        <string>233</string>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
   </void>
   <void property="listaUsuarios">
    <void method="add">
